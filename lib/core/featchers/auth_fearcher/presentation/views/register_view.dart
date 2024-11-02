@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:movie/core/featchers/auth_fearcher/presentation/views/login_view.dart';
+import 'package:movie/core/featchers/auth_fearcher/presentation/widgets/text_form_field.dart';
+import 'package:movie/core/utils/app_style.dart';
+import 'package:movie/core/utils/spacer.dart';
+import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
 
-import 'package:movie/scr/auth_fearcher/presentation/views/register_view.dart';
-import 'package:movie/scr/auth_fearcher/presentation/widgets/text_form_field.dart';
-import 'package:movie/scr/app_style.dart';
-import 'package:movie/scr/spacer.dart';
-import 'package:movie/scr/home_featcher/presentation/views/home_view.dart';
+class RegisterView extends StatefulWidget {
+  static const String id = 'register_view';
 
-class LoginView extends StatefulWidget {
-  static const String id = 'login_view';
-
-  const LoginView({super.key});
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   TextEditingController emailController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
   final TextEditingController controller = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  bool isLoading = false;
   bool isSecured = true;
+  bool isLoading = false;
   @override
   @override
   void dispose() {
@@ -31,13 +29,15 @@ class _LoginViewState extends State<LoginView> {
     super.dispose();
   }
 
+  // Regex Reguler experission
+
   //on save method
-  // Future<void> onSave() async {
-  //   final bool isValid = formKey.currentState?.validate() ?? false;
-  //   if (!isValid) {
-  //     return;
-  //   }
-  // }
+  Future<void> onSave() async {
+    final bool isValid = formKey.currentState?.validate() ?? false;
+    if (!isValid) {
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,27 +53,29 @@ class _LoginViewState extends State<LoginView> {
               ),
               Center(
                 child: Container(
-                  height: 50,
-                  width: 50,
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  width: MediaQuery.of(context).size.height * 0.2,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      border:
-                          Border.all(color: const Color(0xff0a2d40), width: 1)
-                      // color: Colors.black,
-                      ),
-                  child:
-                      Image.asset("asset/images/logo4.jpg", fit: BoxFit.contain
-                          // color: Colors.black12,
-                          ),
+                    borderRadius: BorderRadius.circular(16),
+                    border:
+                        Border.all(color: const Color(0xff0a2d40), width: 2),
+                  ),
+                  child: Image.asset(
+                    "asset/images/logo4.jpg",
+
+                    // color: Colors.black12,
+                  ),
                 ),
               ),
               spacerH12,
               const Center(
                 child: Text(
-                  'sign in to continue',
+                  "Register to continue",
                   style: AppStyle.thinTextStyle,
                 ),
               ),
+              spacerH20,
+              CustomTextField(hint: "name", prefixIcon: Icons.person),
               spacerH20,
               CustomTextField(
                 hint: 'email',
@@ -123,7 +125,7 @@ class _LoginViewState extends State<LoginView> {
                     Navigator.pushNamed(context, HomeView.id);
                   },
                   child: const Text(
-                    "sign in ",
+                    "Register",
                     style: AppStyle.thinColorTextStyle,
                   ),
                 ),
@@ -136,10 +138,10 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, RegisterView.id);
+                    Navigator.pushNamed(context, LoginView.id);
                   },
                   child: const Text(
-                    ' Register',
+                    ' Login',
                     style: AppStyle.boldColorTextStyle,
                   ),
                 ),
@@ -151,3 +153,4 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 }
+//.bat configure

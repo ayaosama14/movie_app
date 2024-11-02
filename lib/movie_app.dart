@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie/scr/auth_fearcher/presentation/views/login_view.dart';
-import 'package:movie/scr/auth_fearcher/presentation/views/register_view.dart';
-import 'package:movie/scr/home_featcher/presentation/views/home_view.dart';
+import 'package:movie/core/featchers/auth_fearcher/presentation/views/login_view.dart';
+import 'package:movie/core/featchers/auth_fearcher/presentation/views/register_view.dart';
+import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
 
 class MovieApp extends StatelessWidget {
   const MovieApp({super.key});

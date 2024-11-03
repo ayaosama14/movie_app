@@ -52,21 +52,27 @@ class _LoginViewState extends State<LoginView> {
                 height: 75,
               ),
               Center(
-                child: Container(
-                  height: 50,
-                  width: 50,
+                child:  Container(
+                  width: 100.0,
+                  height: 100.0,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xff7c94b6),
+                      borderRadius:const BorderRadius.all( Radius.circular(40.0)),
                       border:
-                          Border.all(color: const Color(0xff0a2d40), width: 1)
-                      // color: Colors.black,
-                      ),
-                  child:
-                      Image.asset("asset/images/logo4.jpg", fit: BoxFit.contain
-                          // color: Colors.black12,
-                          ),
+                      Border.all(color: const Color(0xff0a2d40), width: 2)
+                   , image:const  DecorationImage(
+                      image: AssetImage("asset/images/logo4.jpg",), fit: BoxFit.cover,
+                    ),
+
                 ),
-              ),
+                        // color: Colors.black,
+
+                              // color: Colors.black12,
+                              ),
+                        ),
+
+
+
               spacerH12,
               const Center(
                 child: Text(

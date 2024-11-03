@@ -52,19 +52,22 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 75,
               ),
               Center(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  width: MediaQuery.of(context).size.height * 0.2,
+                child:  Container(
+                  width: 100.0,
+                  height: 100.0,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xff7c94b6),
+                    borderRadius:const BorderRadius.all( Radius.circular(40.0)),
                     border:
-                        Border.all(color: const Color(0xff0a2d40), width: 2),
+                    Border.all(color: const Color(0xff0a2d40), width: 2)
+                    , image:const  DecorationImage(
+                    image: AssetImage("asset/images/logo4.jpg",), fit: BoxFit.cover,
                   ),
-                  child: Image.asset(
-                    "asset/images/logo4.jpg",
 
-                    // color: Colors.black12,
                   ),
+                  // color: Colors.black,
+
+                  // color: Colors.black12,
                 ),
               ),
               spacerH12,

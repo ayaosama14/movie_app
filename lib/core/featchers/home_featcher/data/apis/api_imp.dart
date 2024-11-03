@@ -1,6 +1,7 @@
 import 'package:either_dart/either.dart';
 import 'package:movie/core/featchers/home_featcher/data/apis/apis.dart';
 import 'package:dio/dio.dart';
+import 'package:movie/core/featchers/home_featcher/data/model.dart';
 import 'package:movie/core/utils/app_response.dart';
 
 class ApiImp implements Apis {
@@ -9,12 +10,12 @@ class ApiImp implements Apis {
   static const Map<String, String> header = {
     'accept': 'application/json',
     'Authorization':
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMDU1Nzk2MC43MDAxNTQzLCJzdWIiOiI2NzIzYjc3NGQ5YThhNzdiNWRhNDhiMzkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.gMAhMovfvtvGst6yEdiaiD1yXRA2z6az5JQM4zeMzag'
+    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMDY1OTYyNC44Mzg2NTYsInN1YiI6IjY3MjNiNzc0ZDlhOGE3N2I1ZGE0OGIzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n8TBitFBvni9chovPCWcGwDaEnlvucB7CBEr1HGL3wE'
   };
   final _dio = Dio();
 
   @override
-  Future<Either<String, APIResponse>> getMoviesList({path = url}) async {
+  Future<Either<String, PopularResModel>> getMoviesList() async {
     try {
       //im trying to do get to any type of movies
       // getMoviesList({path=url, endPoint='movie/popular',queryParams=const {'language':'en-US','page':'1'}}

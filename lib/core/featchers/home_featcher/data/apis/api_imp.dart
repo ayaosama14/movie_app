@@ -1,8 +1,11 @@
-import 'package:either_dart/either.dart';
+
+
 import 'package:movie/core/featchers/home_featcher/data/apis/apis.dart';
 import 'package:dio/dio.dart';
-import 'package:movie/core/featchers/home_featcher/data/model.dart';
-import 'package:movie/core/utils/app_response.dart';
+
+
+import '../../../../utils/app_response.dart';
+
 
 class ApiImp implements Apis {
   static const url =
@@ -15,19 +18,12 @@ class ApiImp implements Apis {
   final _dio = Dio();
 
   @override
-  Future<Either<String, PopularResModel>> getMoviesList() async {
-    try {
-      //im trying to do get to any type of movies
-      // getMoviesList({path=url, endPoint='movie/popular',queryParams=const {'language':'en-US','page':'1'}}
+  Future<Response> getMoviesList() async {
 
-      // path=('$url$endPoint?'+queryParams!);
-      final response = await _dio.get(url, options: Options(headers: header));
-      print('Response data: ${response.data}');
 
-      return Right(await response.data);
-    } catch (e) {
-      print('Error: $e');
-      return Left("Request executing with errors:$e");
-    }
-  }
-}
+
+    Response response = await _dio.get(
+      url, options: Options(headers: header),) ;
+    print('Api imp Response data: ${response.data}');
+    return response;
+  }}

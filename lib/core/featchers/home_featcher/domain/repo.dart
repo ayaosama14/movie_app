@@ -5,6 +5,6 @@ import '../data/model.dart';
 abstract class Repo{
 //entity
 //call apis
-  Future<Either<String, PopularResModel>> fetchpopularMovies();
+  Future<Either<String, PopularResModel>> fetchPopularMovies();
 
 }

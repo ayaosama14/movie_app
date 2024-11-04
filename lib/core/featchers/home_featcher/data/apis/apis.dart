@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:movie/core/utils/app_response.dart';
 
@@ -9,5 +10,5 @@ abstract class Apis {
   //     {required String path,
   //     required String endPoint,
   //     Map<String, String>? queryParams});
-  Future<Either<String, PopularResModel>> getMoviesList();
+  Future <Response> getMoviesList();
 }

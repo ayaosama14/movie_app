@@ -1,23 +1,30 @@
-// get data 
-//return entity
+
+import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:movie/core/featchers/home_featcher/data/apis/api_imp.dart';
 import 'package:movie/core/featchers/home_featcher/data/model.dart';
 import 'package:movie/core/featchers/home_featcher/domain/repo.dart';
+import 'package:movie/core/utils/app_response.dart';
 
 class RepoImp extends Repo{
+  ApiImp popularApiImp=ApiImp();
+
   @override
-  Future<Either<String, PopularResModel>> fetchpopularMovies()async {
-    try{
-      PopularResModel  repoResponse;
-
-      repoResponse =ApiImp().getMoviesList() as PopularResModel;
-
-      return Left(await repoResponse);
+   Future<Either<String, PopularResModel>> fetchPopularMovies()async {
+    // APIResponse   apiResponse;
 
 
-  } catch (e) {
-      // print('Error: $e');
-      return Right("Request executing with errors:$e");
-    }
-}
+       Response response  =await popularApiImp.getMoviesList()  ;
+if(response.statusCode==200) {
+  PopularResModel instancePopResModel=PopularResModel.fromJson(response.data);
+  print("RepoImp response is${instancePopResModel}");
+
+  return  Right( instancePopResModel);
+
+
+
+  } else{
+
+      return Left( "${response.statusMessage}");
+      // return   Left("Request executing with errors:$e");
+}}}

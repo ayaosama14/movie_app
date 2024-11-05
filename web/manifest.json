@@ -1,6 +1,6 @@
 {
-    "name": "movie",
-    "short_name": "movie",
+    "name": "testing_mov",
+    "short_name": "testing_mov",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

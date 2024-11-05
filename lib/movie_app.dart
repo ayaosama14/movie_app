@@ -5,6 +5,7 @@ import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.
 import 'package:provider/provider.dart';
 
 import 'core/featchers/home_featcher/presentation/manager/popular_movies_provider.dart';
+import 'core/featchers/home_featcher/presentation/views/details_view.dart';
 
 class MovieApp extends StatelessWidget {
   const MovieApp({super.key});
@@ -23,6 +24,7 @@ class MovieApp extends StatelessWidget {
           LoginView.id: (BuildContext context) => const LoginView(),
           RegisterView.id: (BuildContext context) => const RegisterView(),
           HomeView.id: (BuildContext context) => const HomeView(),
+          DetailsMovieView.id: (BuildContext context) => const DetailsMovieView(),
         });
   }
 }

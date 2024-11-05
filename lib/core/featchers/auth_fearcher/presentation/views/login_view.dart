@@ -6,6 +6,8 @@ import 'package:movie/core/utils/app_style.dart';
 import 'package:movie/core/utils/spacer.dart';
 import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
 
+import '../../../home_featcher/presentation/views/details_view.dart';
+
 class LoginView extends StatefulWidget {
   static const String id = 'login_view';
 
@@ -126,7 +128,9 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeView.id);
+                    // Navigator.pushNamed(context, HomeView.id);
+
+                    Navigator.pushNamed(context, DetailsMovieView.id);
                   },
                   child: const Text(
                     "sign in ",

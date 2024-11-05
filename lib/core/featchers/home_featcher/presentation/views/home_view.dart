@@ -21,11 +21,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    // // You can call fetchPopularMovies here if you have a provider available
-    // Future.microtask(() {
-    //   final provider = Provider.of<PopularMoviesProvider>(context, listen: false);
-    //   provider.fetchPopularMovies();
-    // });
+    // You can call fetchPopularMovies here if you have a provider available
+    Future.microtask(() {
+      final myprovider = Provider.of<PopularMoviesProvider>(context, listen: false);
+      myprovider.fetchPopularMovies();
+    });
   }
 
   @override

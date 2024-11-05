@@ -13,8 +13,7 @@ class ApiImp implements Apis {
   static const Map<String, String> header = {
     'accept': 'application/json',
     'Authorization':
-    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMDY1OTYyNC44Mzg2NTYsInN1YiI6IjY3MjNiNzc0ZDlhOGE3N2I1ZGE0OGIzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n8TBitFBvni9chovPCWcGwDaEnlvucB7CBEr1HGL3wE'
-  };
+    'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMDgzMzgwOS4wNTA1NjQ4LCJzdWIiOiI2NzIzYjc3NGQ5YThhNzdiNWRhNDhiMzkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.k_G05dVNzZ27_bwFK1Nk1wgDHTs_btuoUF9FscKLQpw'   };
   final _dio = Dio();
 
   @override

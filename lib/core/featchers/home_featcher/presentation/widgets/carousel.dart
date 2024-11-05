@@ -1,15 +1,3 @@
-
-// Consumer<PopularMoviesProvider>(
-//   builder: (context, provider, child) {
-//     // Show a loading indicator while fetching data
-//     if (provider.movies == null || provider.movies!.isEmpty) {
-//       return const Center(child: CircularProgressIndicator());
-//     } if (provider.errorMessage != null) {
-//     return Center(child: Text('Error: ${provider.errorMessage}'));
-//   }
-//     return  MovieItem(provider.movies);
-//   },
-//
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -39,19 +27,19 @@ builder: (BuildContext context) {
 return Container(
 width: MediaQuery.of(context).size.width,
 height:  MediaQuery.of(context).size.height*35,
-decoration: BoxDecoration(
-color: const Color(0xff7c94b6),
+decoration:  BoxDecoration(
+color: Colors.indigo,
 
 
 
     image: DecorationImage(
     fit: BoxFit.cover,
-    image: NetworkImage(
-  item.posterPath!
-    ),
-    ),
+    image: listofMovies.isEmpty? AssetImage('asset/images/logo3.jpg'):NetworkImage( item.posterPath!,),
 
-));
+    ),
+    ));
+
+
 },
 );
 }).toList(),

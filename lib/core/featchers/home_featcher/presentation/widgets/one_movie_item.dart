@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:movie/core/featchers/home_featcher/data/model.dart';
+import 'package:movie/core/featchers/home_featcher/presentation/views/details_view.dart';
 
 import '../../../../utils/app_style.dart';
 
@@ -18,7 +19,7 @@ class _MovieItemState extends State<MovieItem> {
   @override
   Widget build(BuildContext context) {
    return SizedBox(
-      height: 260,
+      height: 350,
       width: MediaQuery.of(context).size.width,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
@@ -29,9 +30,9 @@ class _MovieItemState extends State<MovieItem> {
         itemBuilder: (context, index) {
           final movie = widget.movies![index];
           return Container(
-            height: 200,
+            height: 320,
             width: 200,
-            margin: const EdgeInsets.only(left: 8, right: 8),
+            margin: const EdgeInsets.all(10),
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(6.0),),),
@@ -41,7 +42,7 @@ class _MovieItemState extends State<MovieItem> {
               children: [
                 Container(
                   width: 200.0,
-                  height: 140.0,
+                  height: 200.0,
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     borderRadius: const BorderRadius.all(
@@ -50,8 +51,10 @@ class _MovieItemState extends State<MovieItem> {
 
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                        movie.posterPath!,
+                      image:
+                      NetworkImage(
+                         movie.posterPath!,
+
                       ),
                     ),
 
@@ -60,13 +63,18 @@ class _MovieItemState extends State<MovieItem> {
                 ),
                 const SizedBox(height: 8.0),
                 Text(
-                  movie.title!,
-                  style: AppStyle.boldTextStyle14,
+                ' ${movie.title!}',
+                  style: AppStyle.boldBlackTextStyle,
                 ),
                 const SizedBox(height: 4.0),
+
+
+          Text(' popularity  : ${((movie.popularity!/100).toStringAsFixed(2))} %',
+                  style: AppStyle.thinColorTextStyle,
+                ), const SizedBox(height: 8.0),
                 Text(
-                  '${  movie.popularity} • ${movie.releaseDate}',
-                  style: AppStyle.greyTextStyle12,
+                  ' release Date : ${movie.releaseDate}',
+                  style: AppStyle.thinColorTextStyle,
                 ),
               ],
             ),

@@ -128,9 +128,9 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, HomeView.id);
+                    Navigator.pushNamed(context, HomeView.id);
 
-                    Navigator.pushNamed(context, DetailsMovieView.id);
+                    // Navigator.pushNamed(context, DetailsMovieView.id);
                   },
                   child: const Text(
                     "sign in ",

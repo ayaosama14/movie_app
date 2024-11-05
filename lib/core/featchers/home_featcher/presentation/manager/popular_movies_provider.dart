@@ -27,7 +27,7 @@ class PopularMoviesProvider extends ChangeNotifier {
          (instanceOfModel) {
        // Handle success case
        movies = instanceOfModel.results?? [];
-       print('instanceOfModel.results: $movies');
+       print('* provider instanceOfModel.results: $movies');
        isLoading = false;
        notifyListeners();
      },

@@ -11,20 +11,20 @@ class MovieApp extends StatelessWidget {
   const MovieApp({super.key});
   @override
   Widget build(BuildContext context) {
-    MultiProvider(
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => PopularMoviesProvider()),
         // Add other providers here if needed
-      ],);
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(scaffoldBackgroundColor: const Color(0xffabccc3)),
-        initialRoute: LoginView.id,
-        routes: {
-          LoginView.id: (BuildContext context) => const LoginView(),
-          RegisterView.id: (BuildContext context) => const RegisterView(),
-          HomeView.id: (BuildContext context) => const HomeView(),
-          DetailsMovieView.id: (BuildContext context) => const DetailsMovieView(),
-        });
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(scaffoldBackgroundColor: const Color(0xffabccc3)),
+          initialRoute: LoginView.id,
+          routes: {
+            LoginView.id: (BuildContext context) => const LoginView(),
+            RegisterView.id: (BuildContext context) => const RegisterView(),
+            HomeView.id: (BuildContext context) => const HomeView(),
+            DetailsMovieView.id: (BuildContext context) =>  DetailsMovieView(),
+          }),);
   }
 }

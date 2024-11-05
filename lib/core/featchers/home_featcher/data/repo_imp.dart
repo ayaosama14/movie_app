@@ -16,8 +16,8 @@ class RepoImp extends Repo{
 
        Response response  =await popularApiImp.getMoviesList()  ;
 if(response.statusCode==200) {
-  PopularResModel instancePopResModel=PopularResModel.fromJson(response.data);
-  print("RepoImp response is${instancePopResModel}");
+  PopularResModel instancePopResModel= await PopularResModel.fromJson(response.data);
+  print("* RepoImp response is :${instancePopResModel}");
 
   return  Right( instancePopResModel);
 

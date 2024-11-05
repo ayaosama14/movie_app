@@ -6,7 +6,7 @@ import '../../data/model.dart';
 import '../../data/repo_imp.dart';
 
 class PopularMoviesProvider extends ChangeNotifier {
-  List<Results> ? movies = [];
+  List<Results> ? movies  = [];
   bool isLoading = false;
   String? errorMessage;
 

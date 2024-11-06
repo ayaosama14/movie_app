@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/model.dart';
+import '../../../../utils/const.dart';
+import '../../data/model.dart';import 'package:cached_network_image/cached_network_image.dart';
  CarouselSlider CarouselSliderImage({required BuildContext context ,required List<Results> ? listofMovies}){
   return CarouselSlider(
 options: CarouselOptions(height:  MediaQuery.of(context).size.height*0.35,
@@ -24,20 +25,16 @@ scrollDirection: Axis.horizontal,
 items:listofMovies?.map((item) {
 return Builder(
 builder: (BuildContext context) {
-return Container(
-width: MediaQuery.of(context).size.width,
-height:  MediaQuery.of(context).size.height*35,
-decoration:  BoxDecoration(
-color: Colors.indigo,
+return
 
 
+    CachedNetworkImage(
 
-    image: DecorationImage(
-    fit: BoxFit.cover,
-    image: listofMovies.isEmpty? AssetImage('asset/images/logo3.jpg'):NetworkImage( item.posterPath!,),
-
-    ),
-    ));
+     imageUrl: (ConstValues.baseImage+item.posterPath!),
+      fit: BoxFit.cover,
+        width: MediaQuery.of(context).size.width,
+        height:  MediaQuery.of(context).size.height*45,
+ );
 
 
 },

@@ -35,14 +35,15 @@ class _HomeViewState extends State<HomeView> {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(1),
         child: Scaffold(
           body: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 8.0,width:MediaQuery.of(context).size.width,),
             Consumer<PopularMoviesProvider>(
-              builder: (context, provider, child) {
+              builder: (_, provider, __) {
                 // Show a loading indicator while fetching data
                 if (provider.movies == null || provider.movies!.isEmpty) {
                   return const Center(child: CircularProgressIndicator());
@@ -52,19 +53,24 @@ class _HomeViewState extends State<HomeView> {
                 return  CarouselSliderImage(context: context,listofMovies: provider.movies);
               },
             ),
-               ///////////////////////////////////// //test image ///////////////////////////
 
-
-                ///////////////////////////////////// //test image ///////////////////////////
-
-             SizedBox(height: 8.0,width:MediaQuery.of(context).size.width,),
-                const Text(
-                  'Popular Movies',
-                  style: AppStyle.boldBlackTextStyle,
-                   textAlign: TextAlign.left,
-                  maxLines: 1,
-                  ),
-                SizedBox(height: 8.0,width:MediaQuery.of(context).size.width,),
+             SizedBox(height: 4.0,width:MediaQuery.of(context).size.width,),
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  margin: const EdgeInsets.all(4),
+                  // width:MediaQuery.of(context).size.width,
+                   decoration: const BoxDecoration(
+                     color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(6.0)),),
+                  child:  const Text(
+                    'Popular Movies:',
+                    style: AppStyle.boldBlackTextStyle,
+                     textAlign: TextAlign.start,
+                    maxLines: 1,
+                    ),
+                ),
+                SizedBox(height: 4.0,width:MediaQuery.of(context).size.width,),
 
 
                 Consumer<PopularMoviesProvider>(
@@ -75,11 +81,7 @@ class _HomeViewState extends State<HomeView> {
                     } if (provider.errorMessage != null) {
                     return Center(child: Text('Error: ${provider.errorMessage}'));
                   }
-                    return  GestureDetector(
-                    onTap: (){
-                      Navigator.pushNamed(context, DetailsMovieView.id,arguments:provider.movies);
-                    },
-                        child: MovieItem(provider.movies));
+                    return  MovieItem(provider.movies);
                   },
                 ),
               ]),

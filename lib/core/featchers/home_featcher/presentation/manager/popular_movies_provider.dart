@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import '../../data/model.dart';
 import '../../data/repo_imp.dart';
 
-class PopularMoviesProvider extends ChangeNotifier {
+class PopularMoviesProvider with ChangeNotifier {
   List<Results> ? movies  = [];
   bool isLoading = false;
   String? errorMessage;
+
 
 
   Future fetchPopularMovies() async{

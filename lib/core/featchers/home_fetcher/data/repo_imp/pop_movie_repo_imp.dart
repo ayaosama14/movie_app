@@ -1,10 +1,11 @@
 
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
-import 'package:movie/core/featchers/home_featcher/data/apis/api_imp.dart';
-import 'package:movie/core/featchers/home_featcher/data/model.dart';
-import 'package:movie/core/featchers/home_featcher/domain/repo.dart';
-import 'package:movie/core/utils/app_response.dart';
+import 'package:flutter/material.dart';
+
+import '../../domain/pop_movie_repo.dart';
+import '../Models/pop_movie_model.dart';
+import '../apis/api_imp.dart';
 
 class RepoImp extends Repo{
   ApiImp popularApiImp=ApiImp();

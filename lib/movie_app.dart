@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:movie/core/featchers/auth_fearcher/presentation/views/login_view.dart';
-import 'package:movie/core/featchers/auth_fearcher/presentation/views/register_view.dart';
-import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
-import 'package:provider/provider.dart';
 
-import 'core/featchers/home_featcher/presentation/manager/popular_movies_provider.dart';
-import 'core/featchers/home_featcher/presentation/views/details_view.dart';
+import 'core/featchers/auth_fetcher/presentation/views/login_view.dart';
+import 'core/featchers/auth_fetcher/presentation/views/register_view.dart';
+import 'core/featchers/home_fetcher/presentation/views/details_view.dart';
+import 'core/featchers/home_fetcher/presentation/views/home_view.dart';
 
 class MovieApp extends StatelessWidget {
   const MovieApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => PopularMoviesProvider()),
-        // Add other providers here if needed
-      ],
-      child: MaterialApp(
+    return  MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(scaffoldBackgroundColor: const Color(0xffabccc3)),
           initialRoute: LoginView.id,
@@ -25,6 +18,6 @@ class MovieApp extends StatelessWidget {
             RegisterView.id: (BuildContext context) => const RegisterView(),
             HomeView.id: (BuildContext context) => const HomeView(),
             DetailsMovieView.id: (BuildContext context) =>  DetailsMovieView(),
-          }),);
+          },);
   }
 }

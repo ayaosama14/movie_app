@@ -1,10 +1,9 @@
 import 'package:either_dart/either.dart';
 
-import '../data/model.dart';
+import '../data/Models/pop_movie_model.dart';
 
 abstract class Repo{
-//entity
-//call apis
+
   Future<Either<String, PopularResModel>> fetchPopularMovies();
 
 }

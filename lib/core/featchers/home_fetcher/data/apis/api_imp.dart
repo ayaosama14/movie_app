@@ -1,10 +1,7 @@
 
 
-import 'package:movie/core/featchers/home_featcher/data/apis/apis.dart';
 import 'package:dio/dio.dart';
-
-
-import '../../../../utils/app_response.dart';
+import 'apis.dart';
 
 
 class ApiImp implements Apis {

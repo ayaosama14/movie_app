@@ -2,8 +2,8 @@ import 'package:either_dart/either.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../data/model.dart';
-import '../../data/repo_imp.dart';
+import '../../data/Models/pop_movie_model.dart';
+import '../../data/repo_imp/pop_movie_repo_imp.dart';
 
 class PopularMoviesProvider with ChangeNotifier {
   List<Results> ? movies  = [];
@@ -19,16 +19,16 @@ class PopularMoviesProvider with ChangeNotifier {
 
    result.fold(
          (error) {
-       // Handle error case
-       errorMessage = error;
-       print('Error: $error');
+
+      errorMessage = error;
+       // // print('Error: $error');
        isLoading = false;
        notifyListeners();
          },
          (instanceOfModel) {
-       // Handle success case
+
        movies = instanceOfModel.results?? [];
-       print('* provider instanceOfModel.results: $movies');
+       // print('* provider instanceOfModel.results: $movies');
        isLoading = false;
        notifyListeners();
      },

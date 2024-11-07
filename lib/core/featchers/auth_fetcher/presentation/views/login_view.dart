@@ -1,12 +1,11 @@
+
 import 'package:flutter/material.dart';
+import 'package:movie/core/featchers/auth_fetcher/presentation/views/register_view.dart';
 
-import 'package:movie/core/featchers/auth_fearcher/presentation/views/register_view.dart';
-import 'package:movie/core/featchers/auth_fearcher/presentation/widgets/text_form_field.dart';
-import 'package:movie/core/utils/app_style.dart';
-import 'package:movie/core/utils/spacer.dart';
-import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
-
-import '../../../home_featcher/presentation/views/details_view.dart';
+import '../../../../utils/app_style.dart';
+import '../../../../utils/spacer.dart';
+import '../../../home_fetcher/presentation/views/home_view.dart';
+import '../widgets/text_form_field.dart';
 
 class LoginView extends StatefulWidget {
   static const String id = 'login_view';
@@ -79,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
               const Center(
                 child: Text(
                   'sign in to continue',
-                  style: AppStyle.thinTextStyle,
+                  style: AppStyle.thinTextStyle16,
                 ),
               ),
               spacerH20,
@@ -134,7 +133,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   child: const Text(
                     "sign in ",
-                    style: AppStyle.thinColorTextStyle,
+                    style: AppStyle.thinColorTextStyle16,
                   ),
                 ),
               ),
@@ -142,7 +141,7 @@ class _LoginViewState extends State<LoginView> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   'Don\'t have account? ',
-                  style: AppStyle.thinTextStyle,
+                  style: AppStyle.thinTextStyle16,
                 ),
                 InkWell(
                   onTap: () {
@@ -150,7 +149,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   child: const Text(
                     ' Register',
-                    style: AppStyle.boldColorTextStyle,
+                    style: AppStyle.boldColorTextStyle22,
                   ),
                 ),
               ]),

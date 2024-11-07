@@ -1,11 +1,11 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/core/featchers/home_featcher/data/model.dart';
-import 'package:movie/core/featchers/home_featcher/presentation/views/details_view.dart';
 
 import '../../../../utils/app_style.dart';
 import '../../../../utils/const.dart';
+import '../../data/Models/pop_movie_model.dart';
+import '../views/details_view.dart';
 
 class MovieItem extends StatefulWidget {
   final List<Results>? movies;
@@ -68,7 +68,7 @@ class _MovieItemState extends State<MovieItem> {
                   Expanded( flex: 2,
                     child: Text(
                     ' ${movie.title!}',
-                      style: AppStyle.boldBlackTextStyle,
+                      style: AppStyle.boldBlackTextStyle20,
                       maxLines: 2,overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -78,13 +78,13 @@ class _MovieItemState extends State<MovieItem> {
                   Expanded(
 
               child: Text(' popularity  : ${((movie.popularity!/100).toStringAsFixed(1))}%',
-                      style: AppStyle.thinColorTextStyle,
+                      style: AppStyle.thinColorTextStyle16,
                     ),
             ), const SizedBox(height: 8.0),
                   Expanded(
                     child: Text(
                       ' release Date : ${movie.releaseDate}',
-                      style: AppStyle.thinColorTextStyle,
+                      style: AppStyle.thinColorTextStyle16,
                     ),
                   ),
                   const SizedBox(height: 4.0),  ],

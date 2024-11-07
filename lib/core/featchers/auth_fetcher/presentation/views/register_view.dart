@@ -1,9 +1,12 @@
+
 import 'package:flutter/material.dart';
-import 'package:movie/core/featchers/auth_fearcher/presentation/views/login_view.dart';
-import 'package:movie/core/featchers/auth_fearcher/presentation/widgets/text_form_field.dart';
-import 'package:movie/core/utils/app_style.dart';
-import 'package:movie/core/utils/spacer.dart';
-import 'package:movie/core/featchers/home_featcher/presentation/views/home_view.dart';
+
+
+import '../../../../utils/app_style.dart';
+import '../../../../utils/spacer.dart';
+import '../../../home_fetcher/presentation/views/home_view.dart';
+import '../widgets/text_form_field.dart';
+import 'login_view.dart';
 
 class RegisterView extends StatefulWidget {
   static const String id = 'register_view';
@@ -74,7 +77,7 @@ class _RegisterViewState extends State<RegisterView> {
               const Center(
                 child: Text(
                   "Register to continue",
-                  style: AppStyle.thinTextStyle,
+                  style: AppStyle.thinTextStyle16,
                 ),
               ),
               spacerH20,
@@ -129,7 +132,7 @@ class _RegisterViewState extends State<RegisterView> {
                   },
                   child: const Text(
                     "Register",
-                    style: AppStyle.thinColorTextStyle,
+                    style: AppStyle.thinColorTextStyle16,
                   ),
                 ),
               ),
@@ -137,7 +140,7 @@ class _RegisterViewState extends State<RegisterView> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   'Don\'t have account? ',
-                  style: AppStyle.thinTextStyle,
+                  style: AppStyle.thinTextStyle16,
                 ),
                 InkWell(
                   onTap: () {
@@ -145,7 +148,7 @@ class _RegisterViewState extends State<RegisterView> {
                   },
                   child: const Text(
                     ' Login',
-                    style: AppStyle.boldColorTextStyle,
+                    style: AppStyle.boldColorTextStyle22,
                   ),
                 ),
               ]),

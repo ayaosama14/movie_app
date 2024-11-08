@@ -21,6 +21,9 @@ dependencies:
   provider: ^6.1.2
   carousel_slider: ^5.0.0
   cached_network_image: ^3.4.1
+
+  intl: ^0.19.0
+  easy_localization: ^3.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,6 +38,7 @@ flutter:
   assets:
     - asset/images/logo.jpg
     - asset/images/
+    - asset/translation/
 
   # fonts:
   #   - family: Schyler
@@ -50,3 +54,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true

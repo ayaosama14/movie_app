@@ -1,0 +1,16 @@
+{
+  "authentication": {
+    "sign_in_to_continue": "تسجيل الدخول للمتابعة",
+    "email_hint": "البريد الإلكتروني",
+    "password_hint": "كلمة المرور",
+    "name_hint": "الاسم",
+    "should_be_less_that_4_character": "يجب أن يكون أقل من 4 أحرف",
+    "sign_in": "تسجيل الدخول",
+    "do_not_have_account": "ليس لديك حساب؟",
+    "register": "تسجيل",
+    "Login": "تسجيل الدخول",
+    "register_to_continue": "سجل للمتابعة",
+    "error_@": "عذرًا! يجب أن ينتهي بـ @"
+  }
+
+}

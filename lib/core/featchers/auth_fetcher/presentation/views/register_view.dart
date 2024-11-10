@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 
@@ -74,17 +75,19 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
               ),
               spacerH12,
-              const Center(
+               Center(
                 child: Text(
-                  "Register to continue",
+                  "authentication.register_to_continue".tr(),
+
                   style: AppStyle.thinTextStyle16,
                 ),
               ),
               spacerH20,
-              CustomTextField(hint: "name", prefixIcon: Icons.person),
+              CustomTextField(hint: "authentication.name_hint".tr(),
+               prefixIcon: Icons.person),
               spacerH20,
               CustomTextField(
-                hint: 'email',
+                hint: "authentication.email_hint".tr(),
                 prefixIcon: Icons.email_outlined,
                 myController: emailController,
                 onSaved: (String? value) {
@@ -93,17 +96,17 @@ class _RegisterViewState extends State<RegisterView> {
                 validator: (String? value) {
                   return (value != null && value.contains('@'))
                       ? null
-                      : 'Oops! end with @ char.com';
+                      : "authentication.error_@".tr();
                 },
               ),
               spacerH20,
               CustomTextField(
-                hint: 'password',
+                hint: "authentication.password_hint".tr(),
                 prefixIcon: Icons.lock,
                 myController: passwordController,
                 validator: (String? value) {
                   return (value!.isEmpty || value.length <= 4)
-                      ? 'should be less that 4 charachter'
+                      ?  "authentication.should_be_less_that_4_character".tr()
                       : null;
                 },
                 isSecure: isSecured,
@@ -130,24 +133,26 @@ class _RegisterViewState extends State<RegisterView> {
                   onPressed: () {
                     Navigator.pushNamed(context, HomeView.id);
                   },
-                  child: const Text(
-                    "Register",
+                  child:  Text(
+                    "authentication.register".tr(),
+
                     style: AppStyle.thinColorTextStyle16,
                   ),
                 ),
               ),
               spacerH20,
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                const Text(
-                  'Don\'t have account? ',
+                 Text(
+                  "authentication.do_not_have_account".tr(),
                   style: AppStyle.thinTextStyle16,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, LoginView.id);
                   },
-                  child: const Text(
-                    ' Login',
+                  child:  Text(
+                    "authentication.Login".tr(),
+
                     style: AppStyle.boldColorTextStyle22,
                   ),
                 ),

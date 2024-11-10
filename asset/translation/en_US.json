@@ -1,0 +1,16 @@
+{
+
+  "authentication": {
+    "sign_in_to_continue": "sign in to continue",
+    "email_hint": "email",
+    "password_hint": "password",
+    "name_hint": "name",
+    "should_be_less_that_4_character": "should be less that 4 character",
+    "sign_in": "sign in",
+    "do_not_have_account":"Don\\'t have account?",
+    "register": "Register",
+    "Login":"Login",
+    "register_to_continue": "Register to continue",
+    "error_@": "Oops! end with @ char.com"
+  },"home": {}
+}

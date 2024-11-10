@@ -5,8 +5,16 @@ import 'package:movie/movie_app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp( EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SA')],
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('ar', 'SA')
+      ],
       path: 'asset/translation',
-      fallbackLocale: const Locale('en', 'US'),child:const MovieApp(),),);
+      // fallbackLocale: const Locale('en', 'US'),
+    startLocale:const Locale('en', 'US'),
+    child:const MovieApp(),
+    ),
+  );
 }

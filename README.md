@@ -21,6 +21,6 @@ Responsive Design: The app is designed to be responsive, adapting to various scr
 5-implement (cached_network_image) package to provide image\
   6-implement (either_dart) package to handel states of  <error or response>\
   7-used Named routes to navigate during app\
-   8-implement (flutter_localization) package to translate app
+   8-implement (easy_localization) package to translate app
 
 

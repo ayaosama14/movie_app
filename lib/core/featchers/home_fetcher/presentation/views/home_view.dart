@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 import '../manager/pop_movies_provider.dart';
+import '../widgets/buttom_nav_bar.dart';
 import '../widgets/carousel.dart';
 import '../widgets/one_movie_item.dart';
+import 'details_view.dart';
 
 
 class HomeView extends StatefulWidget {
   static const String id = "home_view";
-
-  const HomeView({super.key});
+int selectedIndex=0;
+   HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -26,6 +28,11 @@ class _HomeViewState extends State<HomeView> {
       provider.fetchPopularMovies();
     });
   }
+  void onItemTapped(int index) {
+    setState(() {
+      widget.selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +42,9 @@ class _HomeViewState extends State<HomeView> {
         child: Padding(
           padding: const EdgeInsets.all(1),
           child: Scaffold(
+            bottomNavigationBar:bottomNavBar(selectedIndex:   widget.selectedIndex,
+              context: context ,
+            ),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

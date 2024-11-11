@@ -9,8 +9,8 @@ class ApiImp implements Apis {
       'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
   static const Map<String, String> header = {
     'accept': 'application/json',
-    'Authorization':
-    'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMDgzMzgwOS4wNTA1NjQ4LCJzdWIiOiI2NzIzYjc3NGQ5YThhNzdiNWRhNDhiMzkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.k_G05dVNzZ27_bwFK1Nk1wgDHTs_btuoUF9FscKLQpw'   };
+  'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWE4NzZmZTRiZWRjNDNjZWZlNGRmMDgyN2NiMTU3YSIsIm5iZiI6MTczMTM0NzQzMy4wNzYyNzYzLCJzdWIiOiI2NzIzYjc3NGQ5YThhNzdiNWRhNDhiMzkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dT0wVCURw_Dt6joh11NoxUgE3_no60ishGnUcYswXkk'}
+  ;
   final _dio = Dio();
 
   @override

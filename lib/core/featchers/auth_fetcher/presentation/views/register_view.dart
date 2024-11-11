@@ -1,9 +1,10 @@
 
-import 'package:easy_localization/easy_localization.dart';
+ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 
 import '../../../../utils/app_style.dart';
+import '../../../../utils/const.dart';
 import '../../../../utils/spacer.dart';
 import '../../../home_fetcher/presentation/views/home_view.dart';
 import '../widgets/text_form_field.dart';
@@ -33,9 +34,9 @@ class _RegisterViewState extends State<RegisterView> {
     super.dispose();
   }
 
-  // Regex Reguler experission
 
-  //on save method
+
+
   Future<void> onSave() async {
     final bool isValid = formKey.currentState?.validate() ?? false;
     if (!isValid) {
@@ -77,36 +78,36 @@ class _RegisterViewState extends State<RegisterView> {
               spacerH12,
                Center(
                 child: Text(
-                  "authentication.register_to_continue".tr(),
+                  "register_to_continue".tr(),
 
                   style: AppStyle.thinTextStyle16,
                 ),
               ),
               spacerH20,
-              CustomTextField(hint: "authentication.name_hint".tr(),
+              CustomTextField(hint: "name_hint".tr(),
                prefixIcon: Icons.person),
               spacerH20,
               CustomTextField(
-                hint: "authentication.email_hint".tr(),
+                hint: "email_hint".tr(),
                 prefixIcon: Icons.email_outlined,
                 myController: emailController,
                 onSaved: (String? value) {
-                  print("onSaved value is : $value");
+                  // print("onSaved value is : $value");
                 },
                 validator: (String? value) {
-                  return (value != null && value.contains('@'))
+                return (value != null &&ConstValues.emailRegExp.hasMatch(value))
                       ? null
-                      : "authentication.error_@".tr();
+                      : "error_@".tr();
                 },
               ),
               spacerH20,
               CustomTextField(
-                hint: "authentication.password_hint".tr(),
+                hint: "password_hint".tr(),
                 prefixIcon: Icons.lock,
                 myController: passwordController,
                 validator: (String? value) {
                   return (value!.isEmpty || value.length <= 4)
-                      ?  "authentication.should_be_less_that_4_character".tr()
+                      ?  "should_be_less_that_4_character".tr()
                       : null;
                 },
                 isSecure: isSecured,
@@ -131,10 +132,10 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeView.id);
+                    Navigator.pushNamed(context, LoginView.id);
                   },
                   child:  Text(
-                    "authentication.register".tr(),
+                    "register".tr(),
 
                     style: AppStyle.thinColorTextStyle16,
                   ),
@@ -143,15 +144,15 @@ class _RegisterViewState extends State<RegisterView> {
               spacerH20,
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                  Text(
-                  "authentication.do_not_have_account".tr(),
+                  "do_not_have_account".tr(),
                   style: AppStyle.thinTextStyle16,
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, LoginView.id);
+                    Navigator.pushNamed(context, HomeView.id);
                   },
                   child:  Text(
-                    "authentication.Login".tr(),
+                    "Login".tr(),
 
                     style: AppStyle.boldColorTextStyle22,
                   ),

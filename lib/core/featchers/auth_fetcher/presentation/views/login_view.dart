@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movie/core/featchers/auth_fetcher/presentation/views/register_view.dart';
 
 import '../../../../utils/app_style.dart';
+import '../../../../utils/const.dart';
 import '../../../../utils/spacer.dart';
 import '../../../home_fetcher/presentation/views/home_view.dart';
 import '../widgets/text_form_field.dart';
@@ -78,32 +79,33 @@ class _LoginViewState extends State<LoginView> {
               spacerH12,
                Center(
                 child: Text(
-                  "authentication.sign_in_to_continue".tr(),
+                  "sign_in_to_continue".tr(),
                   style: AppStyle.thinTextStyle16,
                 ),
               ),
               spacerH20,
               CustomTextField(
-                hint: "authentication.email_hint".tr(),
+                hint: "email_hint".tr(),
                 prefixIcon: Icons.email_outlined,
                 myController: emailController,
                 onSaved: (String? value) {
                   print("onSaved value is : $value");
                 },
                 validator: (String? value) {
-                  return (value != null && value.contains('@'))
+
+                  return (value != null && value.contains('@')&&ConstValues.emailRegExp.hasMatch(value))
                       ? null
                       : "authentication.error_@".tr();
                 },
               ),
               spacerH20,
               CustomTextField(
-                hint: "authentication.password_hint".tr(),
+                hint: "password_hint".tr(),
                 prefixIcon: Icons.lock,
                 myController: passwordController,
                 validator: (String? value) {
                   return (value!.isEmpty || value.length <= 4)
-                      ? "authentication.should_be_less_that_4_character".tr()
+                      ? "should_be_less_that_4_character".tr()
                       : null;
                 },
                 isSecure: isSecured,
@@ -133,14 +135,14 @@ class _LoginViewState extends State<LoginView> {
                     // Navigator.pushNamed(context, DetailsMovieView.id);
                   },
                   child:  Text(
-                    "authentication.sign_in".tr(),
+                    "sign_in".tr(),
                     style: AppStyle.thinColorTextStyle16,
                   ),
                 ),
               ),
               spacerH20,
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                 Text("authentication.do_not_have_account".tr(),
+                 Text("do_not_have_account".tr(),
 
                   style: AppStyle.thinTextStyle16,
                 ),
@@ -149,7 +151,7 @@ class _LoginViewState extends State<LoginView> {
                     Navigator.pushNamed(context, RegisterView.id);
                   },
                   child:  Text(
-                    "authentication.register".tr(),
+                    "register".tr(),
 
                     style: AppStyle.boldColorTextStyle22,
                   ),

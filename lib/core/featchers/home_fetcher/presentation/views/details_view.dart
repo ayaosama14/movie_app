@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
@@ -56,14 +56,14 @@ class _DetailsMovieViewState extends State<DetailsMovieView> {
 
                 children: [
                   spacerH4,
-                  CachedNetworkImage(
-
-                    imageUrl: (ConstValues.baseImage+ provider.movies![widget.index!].posterPath!),
-                    fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width,
-                    height:  MediaQuery.of(context).size.height*0.35,
-                  )
-                  ,
+                  // CachedNetworkImage(
+                  //
+                  //   imageUrl: (ConstValues.baseImage+ provider.movies![widget.index!].posterPath!),
+                  //   fit: BoxFit.cover,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height:  MediaQuery.of(context).size.height*0.35,
+                  // )
+                  // ,
 
 
                       spacerH4,
@@ -90,14 +90,14 @@ class _DetailsMovieViewState extends State<DetailsMovieView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    CachedNetworkImage(
-
-                      imageUrl: (ConstValues.baseImage+provider.movies![widget.index!].posterPath!),
-                      fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width*0.25,
-                      height:  140,
-                    )
-                    ,
+                    // CachedNetworkImage(
+                    //
+                    //   imageUrl: (ConstValues.baseImage+provider.movies![widget.index!].posterPath!),
+                    //   fit: BoxFit.cover,
+                    //   width: MediaQuery.of(context).size.width*0.25,
+                    //   height:  140,
+                    // )
+                    // ,
 
                   spacerW10,
                   SizedBox(

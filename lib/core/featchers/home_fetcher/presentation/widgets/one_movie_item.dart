@@ -50,6 +50,17 @@ class _MovieItemState extends State<MovieItem> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
 
+                 Container(
+          height: 320,
+          width: 200,
+          margin: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(6.0),),),
+          child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
 
 
                           CachedNetworkImage(
@@ -64,7 +75,7 @@ class _MovieItemState extends State<MovieItem> {
 
 
 
-                  const SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                   Expanded( flex: 2,
                     child: Text(
                     ' ${movie.title!}',
@@ -90,6 +101,9 @@ class _MovieItemState extends State<MovieItem> {
                   const SizedBox(height: 4.0),  ],
               ),
             ),
+          ],
+              ),
+          ),
           );
         },
 

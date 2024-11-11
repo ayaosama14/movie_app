@@ -1,3 +1,4 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ import 'core/featchers/home_fetcher/presentation/views/home_view.dart';
 
 
 class MovieApp extends StatelessWidget{
-  const MovieApp({super.key});
+   const MovieApp({super.key});
 
 
 
@@ -18,11 +19,12 @@ class MovieApp extends StatelessWidget{
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(scaffoldBackgroundColor: const Color(0xffabccc3)),
-    initialRoute: LoginView.id,
+     initialRoute: LoginView.id,
+      // initialRoute: HomeView.id,
     routes: {
-    LoginView.id: (BuildContext context) => const LoginView(),
+   LoginView.id: (BuildContext context) => const LoginView(),
     RegisterView.id: (BuildContext context) => const RegisterView(),
-    HomeView.id: (BuildContext context) => const HomeView(),
+    HomeView.id: (BuildContext context) =>  HomeView(),
     DetailsMovieView.id: (BuildContext context) =>  DetailsMovieView(),
     },
       localizationsDelegates: context.localizationDelegates,

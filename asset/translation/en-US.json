@@ -1,6 +1,6 @@
 {
 
-  "authentication": {
+
     "sign_in_to_continue": "sign in to continue",
     "email_hint": "email",
     "password_hint": "password",
@@ -11,6 +11,8 @@
     "register": "Register",
     "Login":"Login",
     "register_to_continue": "Register to continue",
-    "error_@": "Oops! end with @ char.com"
-  },"home": {}
+    "error_@": "Oops! end with @ char.com",
+
+    "Popular_Movies": "Popular Movies:"
+
 }

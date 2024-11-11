@@ -1,5 +1,5 @@
 {
-  "authentication": {
+
     "sign_in_to_continue": "تسجيل الدخول للمتابعة",
     "email_hint": "البريد الإلكتروني",
     "password_hint": "كلمة المرور",
@@ -10,7 +10,7 @@
     "register": "تسجيل",
     "Login": "تسجيل الدخول",
     "register_to_continue": "سجل للمتابعة",
-    "error_@": "عذرًا! يجب أن ينتهي بـ @"
-  }
+    "error_@": "عذرًا! يجب أن ينتهي بـ @",
+    "Popular_Movies": "الافلام المشهوره"
 
 }

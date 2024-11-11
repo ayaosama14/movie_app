@@ -1,4 +1,5 @@
 // import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
@@ -6,116 +7,113 @@ import 'package:provider/provider.dart';
 import '../../../../utils/const.dart';
 import '../../../../utils/spacer.dart';
 
+import '../../data/Models/pop_movie_model.dart';
 import '../manager/pop_movies_provider.dart';
 
-class DetailsMovieView extends StatefulWidget{
-  static const  id='details_movie_view';
-  // late final List<Results>? movies;
-late int  ? index;
-  DetailsMovieView({super.key, this.index});
+class DetailsMovieView extends StatelessWidget {
+  static const id = 'details_movie_view';
+  final List<Results>? movies;
 
-  @override
-  State<DetailsMovieView> createState() => _DetailsMovieViewState();
-}
+  DetailsMovieView({super.key, this.index, this.movies});
 
-class _DetailsMovieViewState extends State<DetailsMovieView> {
-  @override
-  void initState() {
-    super.initState();
-    // You can call fetchPopularMovies here if you have a provider available
-    Future.microtask(() {
-      final provider = Provider.of<PopularMoviesProvider>(context, listen: false);
-      provider.fetchPopularMovies();
-    });
-  }
+  late int? index;
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(create: (_) => PopularMoviesProvider(),
-      child: SafeArea(
-        child:   Consumer<PopularMoviesProvider>(
-          builder: (context, provider, child) {
-        // Show a loading indicator while fetching data
-        if (provider.movies == null || provider.movies!.isEmpty) {
-          return const Center(child: CircularProgressIndicator());
-        } if (provider.errorMessage != null) {
-          return Center(child: Text('Error: ${provider.errorMessage}'));
-        }
-        return
-          Scaffold(
-            appBar: AppBar(
-                title:  Text( (provider.movies![widget.index!].title!),style: AppStyle.boldBlackTextStyle20,),
-                centerTitle:true,
-                leading:IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon:Icon(Icons.arrow_back_ios_rounded ),),
-              ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6),
-              child: Column
-                (crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  spacerH4,
-                  // CachedNetworkImage(
-                  //
-                  //   imageUrl: (ConstValues.baseImage+ provider.movies![widget.index!].posterPath!),
-                  //   fit: BoxFit.cover,
-                  //   width: MediaQuery.of(context).size.width,
-                  //   height:  MediaQuery.of(context).size.height*0.35,
-                  // )
-                  // ,
-
-
-                      spacerH4,
-                  Container(
-                    padding: const EdgeInsets.all(6),
-                    margin: const EdgeInsets.all(4),
-                    // width:MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                          Radius.circular(6.0),),),
-                    child:   Text(
-                    ('Movie name: ${provider.movies![widget.index!].title!}'),
-                      style: AppStyle.boldBlackTextStyle20,
-                      textAlign: TextAlign.start,
-                      maxLines: 1,
-                    ),
-                  ),
-
-                spacerH8,
-                Text('Date: ${provider.movies![widget.index!].releaseDate!}' ,style: AppStyle.boldBlackTextStyle20,textAlign: TextAlign.left,),
-                  spacerH8,  Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-
-                    // CachedNetworkImage(
-                    //
-                    //   imageUrl: (ConstValues.baseImage+provider.movies![widget.index!].posterPath!),
-                    //   fit: BoxFit.cover,
-                    //   width: MediaQuery.of(context).size.width*0.25,
-                    //   height:  140,
-                    // )
-                    // ,
-
-                  spacerW10,
-                  SizedBox(
-                    width:  MediaQuery.of(context).size.width*0.70,
-                    child: Text("Over view : ${provider.movies![1].overview!}", style: AppStyle.boldTextStyle14,maxLines: 6,
-                        overflow :TextOverflow.ellipsis),
-                  )
-
-                ],)
-
-
-              ],),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          (movies![index!].title!),
+          style: AppStyle.boldBlackTextStyle20,
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_rounded),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 6),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            spacerH4,
+            CachedNetworkImage(
+              imageUrl: (ConstValues.baseImage + movies![index!].posterPath!),
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.35,
             ),
-          );
-          })
+            spacerH4,
+            spacerH8,
+            Text(
+              'Date: ${movies![index!].releaseDate!}',
+              style: AppStyle.boldBlackTextStyle20,
+              textAlign: TextAlign.left,
+            ),
+            spacerH8,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CachedNetworkImage(
+                  imageUrl:
+                      (ConstValues.baseImage + movies![index!].posterPath!),
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: 180,
+                ),
+                spacerW12,
+                Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.69,
+                      child: Text("Over view:  ${movies![index!].overview!}",
+                          style: AppStyle.textStyle14,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis),
+                    ),
+                    spacerH8,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.69,
+                      child: Text(
+                          "Language: ${movies![index!].originalLanguage!}",
+                          style: AppStyle.textStyle14,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis),
+                    ),
+                    spacerH8,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.69,
+                      child: Text("popularity: ${((movies![index!].popularity!/100).toStringAsFixed(1))}%",
+                          style: AppStyle.textStyle14,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis),
+                    ),
 
+                    spacerH8,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.69,
+                      child: Row(
+                        children: [
+                          Text("vote: ${movies![index!].voteAverage!.toStringAsFixed(1)}",
+                              style: AppStyle.textStyle14,
+                              maxLines: 6,
+                              overflow: TextOverflow.ellipsis),
+                      const    Icon(Icons.star_border_outlined,color: Colors.amber,)
+                        ],
+                      )
+                    ),
+                  ],
+                ),
+                // originalLanguage
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 }
-

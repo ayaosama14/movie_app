@@ -14,7 +14,8 @@ Future<void> main() async {
       ],
       path: 'asset/translation',
       // fallbackLocale: const Locale('en', 'US'),
-    startLocale:const   Locale('ar', 'SA'),
+      startLocale:const      Locale('en', 'US'),
+    // startLocale:const   Locale('ar', 'SA'),
     child:
     const MovieApp(),
   ),

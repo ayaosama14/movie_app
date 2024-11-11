@@ -35,7 +35,7 @@ class _MovieItemState extends State<MovieItem> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DetailsMovieView(index: index)),);
+                MaterialPageRoute(builder: (context) => DetailsMovieView(index: index,movies:widget.movies!)),);
               // Navigator.push(context,DetailsMovieView(index: index) as Route<Object?> );
               // Navigator.pushNamed(context, DetailsMovieView.id, arguments:index);
             }, child: Container(

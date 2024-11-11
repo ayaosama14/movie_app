@@ -12,6 +12,11 @@ class AppStyle {
   static const TextStyle  boldTextStyle14= TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 14.0,
+      wordSpacing:4
+  );  static const TextStyle textStyle14= TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 14.0,
+      wordSpacing:4
   );
   static const TextStyle greyTextStyle12= TextStyle(
   color: Colors.grey,

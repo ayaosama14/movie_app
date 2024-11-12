@@ -95,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
 
                   return (value != null && value.contains('@')&&ConstValues.emailRegExp.hasMatch(value))
                       ? null
-                      : "authentication.error_@".tr();
+                      : "error_@".tr();
                 },
               ),
               spacerH20,

@@ -80,7 +80,7 @@ class _LoginViewState extends State<LoginView> {
                Center(
                 child: Text(
                   "sign_in_to_continue".tr(),
-                  style:  Theme.of(context).textTheme.displayLarge,
+                  style:  Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
               spacerH20,
@@ -136,7 +136,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   child:  Text(
                     "sign_in".tr(),
-                    style:  Theme.of(context).textTheme.displayLarge,
+                    style:  Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
@@ -144,14 +144,14 @@ class _LoginViewState extends State<LoginView> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                  Text("do_not_have_account".tr(),
 
-                   style:  Theme.of(context).textTheme.displayLarge,
+                   style:  Theme.of(context).textTheme.displayMedium
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, RegisterView.id);
                   },
                   child:  Text(
-                    "register".tr(),
+                    " register".tr(),
 
                     style:  Theme.of(context).textTheme.bodyLarge,
                   ),

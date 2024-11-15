@@ -80,7 +80,7 @@ class _RegisterViewState extends State<RegisterView> {
                 child: Text(
                   "register_to_continue".tr(),
 
-                  style:  Theme.of(context).textTheme.displayLarge,
+                  style:  Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
               spacerH20,
@@ -137,7 +137,7 @@ class _RegisterViewState extends State<RegisterView> {
                   child:  Text(
                     "register".tr(),
 
-                    style:  Theme.of(context).textTheme.displayLarge,
+                    style:  Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
@@ -146,14 +146,14 @@ class _RegisterViewState extends State<RegisterView> {
                  Text(
                   "do_not_have_account".tr(),
 
-                     style:  Theme.of(context).textTheme.displayLarge,
+                     style:  Theme.of(context).textTheme.displayMedium,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, HomeView.id);
                   },
                   child:  Text(
-                    "Login".tr(),
+                    " Login".tr(),
                     style:  Theme.of(context).textTheme.bodyLarge,
 
                   ),

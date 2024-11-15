@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
+import '../../../../utils/di.dart';
 import '../manager/pop_movies_provider.dart';
 import '../widgets/buttom_nav_bar.dart';
 import '../widgets/carousel.dart';
@@ -30,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
 
-    return ChangeNotifierProvider(create: (_) => PopularMoviesProvider()..fetchPopularMovies(),
+    return ChangeNotifierProvider(create: (_) =>  getIt<PopularMoviesProvider>()..fetchPopularMovies(),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(1),
@@ -66,7 +67,8 @@ class _HomeViewState extends State<HomeView> {
                         Radius.circular(6.0),),),
                     child:   Text(
                       'Popular_Movies'.tr(),
-                      style: AppStyle.boldBlackTextStyle20,
+                      // style: AppStyle.boldBlackTextStyle20,
+                      style: Theme.of(context).textTheme.bodyMedium,
                        textAlign: TextAlign.start,
                       maxLines: 1,
                       ),

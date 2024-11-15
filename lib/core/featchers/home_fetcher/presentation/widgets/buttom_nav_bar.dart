@@ -29,7 +29,9 @@ BottomNavigationBar bottomNavBar ({required int selectedIndex,required BuildCont
     currentIndex: selectedIndex??0,
       // backgroundColor:Colors.black54,
       iconSize:28,
-      selectedItemColor: AppColor.pr1Color,
+      selectedItemColor:Theme.of(context).colorScheme.secondary
+
+      ,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       onTap:( selectedIndex){

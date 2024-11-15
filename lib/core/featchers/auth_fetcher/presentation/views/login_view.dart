@@ -80,7 +80,7 @@ class _LoginViewState extends State<LoginView> {
                Center(
                 child: Text(
                   "sign_in_to_continue".tr(),
-                  style: AppStyle.thinTextStyle16,
+                  style:  Theme.of(context).textTheme.displayLarge,
                 ),
               ),
               spacerH20,
@@ -136,7 +136,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   child:  Text(
                     "sign_in".tr(),
-                    style: AppStyle.thinColorTextStyle16,
+                    style:  Theme.of(context).textTheme.displayLarge,
                   ),
                 ),
               ),
@@ -144,7 +144,7 @@ class _LoginViewState extends State<LoginView> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                  Text("do_not_have_account".tr(),
 
-                  style: AppStyle.thinTextStyle16,
+                   style:  Theme.of(context).textTheme.displayLarge,
                 ),
                 InkWell(
                   onTap: () {
@@ -153,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                   child:  Text(
                     "register".tr(),
 
-                    style: AppStyle.boldColorTextStyle22,
+                    style:  Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
               ]),

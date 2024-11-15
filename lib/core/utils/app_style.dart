@@ -21,4 +21,5 @@ class AppStyle {
   static const TextStyle greyTextStyle12= TextStyle(
   color: Colors.grey,
   fontSize: 12.0);
+
 }

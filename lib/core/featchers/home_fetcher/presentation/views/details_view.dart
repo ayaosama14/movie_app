@@ -1,14 +1,13 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/core/utils/app_style.dart';
-import 'package:provider/provider.dart';
+
 
 import '../../../../utils/const.dart';
 import '../../../../utils/spacer.dart';
 
 import '../../data/Models/pop_movie_model.dart';
-import '../manager/pop_movies_provider.dart';
+
 
 class DetailsMovieView extends StatelessWidget {
   static const id = 'details_movie_view';
@@ -24,18 +23,18 @@ class DetailsMovieView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           (movies![index!].title!),
-          style: AppStyle.boldBlackTextStyle20,
+          // style: AppStyle.boldBlackTextStyle20,
         ),
-        centerTitle: true,
+        // centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon:const Icon(Icons.arrow_back_ios_rounded),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 6),
+        padding:const EdgeInsets.symmetric(horizontal: 6),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,8 +49,9 @@ class DetailsMovieView extends StatelessWidget {
             spacerH8,
             Text(
               'Date: ${movies![index!].releaseDate!}',
-              style: AppStyle.boldBlackTextStyle20,
-              textAlign: TextAlign.left,
+              // style: AppStyle.boldBlackTextStyle20,
+              style: Theme.of(context).textTheme.bodyMedium
+              // textAlign: TextAlign.left,
             ),
             spacerH8,
             Row(
@@ -71,8 +71,9 @@ class DetailsMovieView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text("Over view:  ${movies![index!].overview!}",
-                          style: AppStyle.textStyle14,
-                          maxLines: 6,
+                          style: Theme.of(context).textTheme.bodySmall
+
+                          ,maxLines: 6,
                           overflow: TextOverflow.ellipsis),
                     ),
                     spacerH8,
@@ -80,7 +81,8 @@ class DetailsMovieView extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text(
                           "Language: ${movies![index!].originalLanguage!}",
-                          style: AppStyle.textStyle14,
+                          style: Theme.of(context).textTheme.bodySmall,
+
                           maxLines: 6,
                           overflow: TextOverflow.ellipsis),
                     ),
@@ -88,8 +90,9 @@ class DetailsMovieView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text("popularity: ${((movies![index!].popularity!/100).toStringAsFixed(1))}%",
-                          style: AppStyle.textStyle14,
-                          maxLines: 6,
+                          // style: AppStyle.textStyle14,
+                          style: Theme.of(context).textTheme.bodySmall
+                         , maxLines: 6,
                           overflow: TextOverflow.ellipsis),
                     ),
 
@@ -99,8 +102,9 @@ class DetailsMovieView extends StatelessWidget {
                       child: Row(
                         children: [
                           Text("vote: ${movies![index!].voteAverage!.toStringAsFixed(1)}",
-                              style: AppStyle.textStyle14,
-                              maxLines: 6,
+                              // style: AppStyle.textStyle14,
+                              style: Theme.of(context).textTheme.bodySmall
+                            ,  maxLines: 6,
                               overflow: TextOverflow.ellipsis),
                       const    Icon(Icons.star_border_outlined,color: Colors.amber,)
                         ],

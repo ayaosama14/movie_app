@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
@@ -10,18 +9,17 @@ import '../widgets/carousel.dart';
 import '../widgets/one_movie_item.dart';
 import 'details_view.dart';
 
-
 class HomeView extends StatefulWidget {
   static const String id = "home_view";
-int selectedIndex=0;
-   HomeView({super.key});
+  int selectedIndex = 0;
+
+  HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-
   void onItemTapped(int index) {
     setState(() {
       widget.selectedIndex = index;
@@ -30,67 +28,86 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-
-    return ChangeNotifierProvider(create: (_) =>  getIt<PopularMoviesProvider>()..fetchPopularMovies(),
+    final provider=getIt<PopularMoviesProvider>();
+    return ChangeNotifierProvider(
+      create: (_) => provider..fetchPopularMovies(),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(1),
           child: Scaffold(
-            bottomNavigationBar:bottomNavBar(selectedIndex:   widget.selectedIndex,
-              context: context ,
+            bottomNavigationBar: bottomNavBar(
+              selectedIndex: widget.selectedIndex,
+              context: context,
             ),
             body: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 8.0,width:MediaQuery.of(context).size.width,),
-              Consumer<PopularMoviesProvider>(
-                builder: (_, provider, __) {
-                  // Show a loading indicator while fetching data
-                  if (provider.movies == null || provider.movies!.isEmpty) {
-                    return const Center(child: CircularProgressIndicator());
-                  } if (provider.errorMessage != null) {
-                    return Center(child: Text('Error: ${provider.errorMessage}'));
-                  }
-                  return  carouselSliderImage(context: context,listOfMovies: provider.movies);
-                },
-              ),
-
-               SizedBox(height: 4.0,width:MediaQuery.of(context).size.width,),
-                  Container(
-                    padding: const EdgeInsets.all(6),
-                    margin: const EdgeInsets.all(4),
-                    // width:MediaQuery.of(context).size.width,
-                     decoration: const BoxDecoration(
-                       color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(6.0),),),
-                    child:   Text(
-                      'Popular_Movies'.tr(),
-                      // style: AppStyle.boldBlackTextStyle20,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                       textAlign: TextAlign.start,
-                      maxLines: 1,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 8.0,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Consumer<PopularMoviesProvider>(
+                      builder: (_, provider, __) {
+                        // Show a loading indicator while fetching data
+                        if (provider.movies == null ||
+                            provider.movies!.isEmpty) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                        if (provider.errorMessage != null) {
+                          return Center(
+                              child: Text('Error: ${provider.errorMessage}'));
+                        }
+                        return carouselSliderImage(
+                            context: context, listOfMovies: provider.movies);
+                      },
+                    ),
+                    SizedBox(
+                      height: 4.0,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(6),
+                      margin: const EdgeInsets.all(4),
+                      // width:MediaQuery.of(context).size.width,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(6.0),
+                        ),
                       ),
-                  ),
-                  SizedBox(height: 4.0,width:MediaQuery.of(context).size.width,),
-
-
-                  Consumer<PopularMoviesProvider>(
-                    builder: (context, provider, child) {
-                      // Show a loading indicator while fetching data
-                      if (provider.movies == null || provider.movies!.isEmpty) {
-                        return const Center(child: CircularProgressIndicator());
-                      } if (provider.errorMessage != null) {
-                      return Center(child: Text('Error: ${provider.errorMessage}'));
-                    }
-                      return  MovieItem(provider.movies);
-                    },
-                  ),
-                ]),
-              ),
+                      child: Text(
+                        'Popular_Movies'.tr(),
+                        // style: AppStyle.boldBlackTextStyle20,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 4.0,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Consumer<PopularMoviesProvider>(
+                      builder: (context, provider, child) {
+                        // Show a loading indicator while fetching data
+                        if (provider.movies == null ||
+                            provider.movies!.isEmpty) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                        if (provider.errorMessage != null) {
+                          return Center(
+                              child: Text('Error: ${provider.errorMessage}'));
+                        }
+                        return MovieItem(provider.movies);
+                      },
+                    ),
+                  ]),
             ),
           ),
+        ),
       ),
     );
   }

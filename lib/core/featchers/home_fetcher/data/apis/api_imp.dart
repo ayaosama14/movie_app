@@ -7,6 +7,11 @@ class ApiImp implements Apis {
 
 
 
+  // getNowPlayingMovies(){
+  //
+  // }
+
+
   @override
   Future<Response> getPopMoviesList() async {
     dio.options.baseUrl='https://api.themoviedb.org/3';

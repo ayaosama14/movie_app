@@ -4,8 +4,8 @@ import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 import '../../../../utils/di.dart';
 import '../manager/pop_movies_provider.dart';
-import '../widgets/buttom_nav_bar.dart';
-import '../widgets/carousel.dart';
+import '../../../../utils/buttom_nav_bar.dart';
+import '../../../../utils/carousel.dart';
 import '../widgets/one_movie_item.dart';
 import 'details_view.dart';
 
@@ -80,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
                       child: Text(
                         'Popular_Movies'.tr(),
                         // style: AppStyle.boldBlackTextStyle20,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyLarge,
                         textAlign: TextAlign.start,
                         maxLines: 1,
                       ),

@@ -23,7 +23,7 @@ class DetailsMovieView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           (movies![index!].title!),
-          // style: AppStyle.boldBlackTextStyle20,
+          style:Theme.of(context).textTheme.bodyLarge,
         ),
         // centerTitle: true,
         leading: IconButton(
@@ -50,7 +50,7 @@ class DetailsMovieView extends StatelessWidget {
             Text(
               'Date: ${movies![index!].releaseDate!}',
               // style: AppStyle.boldBlackTextStyle20,
-              style: Theme.of(context).textTheme.bodyMedium
+              style: Theme.of(context).textTheme.displayMedium
               // textAlign: TextAlign.left,
             ),
             spacerH8,
@@ -71,7 +71,7 @@ class DetailsMovieView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text("Over view:  ${movies![index!].overview!}",
-                          style: Theme.of(context).textTheme.bodySmall
+                          style: Theme.of(context).textTheme.displayMedium
 
                           ,maxLines: 6,
                           overflow: TextOverflow.ellipsis),
@@ -81,7 +81,7 @@ class DetailsMovieView extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text(
                           "Language: ${movies![index!].originalLanguage!}",
-                          style: Theme.of(context).textTheme.bodySmall,
+                          style: Theme.of(context).textTheme.displayMedium,
 
                           maxLines: 6,
                           overflow: TextOverflow.ellipsis),
@@ -91,7 +91,7 @@ class DetailsMovieView extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.69,
                       child: Text("popularity: ${((movies![index!].popularity!/100).toStringAsFixed(1))}%",
                           // style: AppStyle.textStyle14,
-                          style: Theme.of(context).textTheme.bodySmall
+                          style: Theme.of(context).textTheme.displayMedium
                          , maxLines: 6,
                           overflow: TextOverflow.ellipsis),
                     ),
@@ -103,7 +103,7 @@ class DetailsMovieView extends StatelessWidget {
                         children: [
                           Text("vote: ${movies![index!].voteAverage!.toStringAsFixed(1)}",
                               // style: AppStyle.textStyle14,
-                              style: Theme.of(context).textTheme.bodySmall
+                              style: Theme.of(context).textTheme.displayMedium
                             ,  maxLines: 6,
                               overflow: TextOverflow.ellipsis),
                       const    Icon(Icons.star_border_outlined,color: Colors.amber,)

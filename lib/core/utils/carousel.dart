@@ -3,8 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../../../utils/const.dart';
-import '../../data/Models/pop_movie_model.dart';
+import 'const.dart';
+import '../featchers/home_fetcher/data/Models/pop_movie_model.dart';
 
  CarouselSlider carouselSliderImage({required BuildContext context ,required List<Results> ? listOfMovies}){
   return CarouselSlider(

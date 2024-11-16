@@ -1,7 +1,7 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/featchers/auth_fetcher/presentation/views/register_view.dart';
+import 'package:movie/core/utils/snack_bar.dart';
 
 import '../../../../utils/app_style.dart';
 import '../../../../utils/const.dart';
@@ -27,6 +27,7 @@ class _LoginViewState extends State<LoginView> {
 
   bool isLoading = false;
   bool isSecured = true;
+
   @override
   @override
   void dispose() {
@@ -55,32 +56,31 @@ class _LoginViewState extends State<LoginView> {
                 height: 75,
               ),
               Center(
-                child:  Container(
+                child: Container(
                   width: 100.0,
                   height: 100.0,
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
-                      borderRadius:const BorderRadius.all( Radius.circular(40.0)),
-                      border:
-                      Border.all(color: const Color(0xff0a2d40), width: 2)
-                   , image:const  DecorationImage(
-                      image: AssetImage("asset/images/logo4.jpg",), fit: BoxFit.cover,
+                    borderRadius: const BorderRadius.all(Radius.circular(40.0)),
+                    border:
+                        Border.all(color: const Color(0xff0a2d40), width: 2),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                        "asset/images/logo4.jpg",
+                      ),
+                      fit: BoxFit.cover,
                     ),
+                  ),
+                  // color: Colors.black,
 
+                  // color: Colors.black12,
                 ),
-                        // color: Colors.black,
-
-                              // color: Colors.black12,
-                              ),
-                        ),
-
-
-
+              ),
               spacerH12,
-               Center(
+              Center(
                 child: Text(
                   "sign_in_to_continue".tr(),
-                  style:  Theme.of(context).textTheme.headlineLarge,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
               spacerH20,
@@ -92,8 +92,8 @@ class _LoginViewState extends State<LoginView> {
                   print("onSaved value is : $value");
                 },
                 validator: (String? value) {
-
-                  return (value != null && value.contains('@')&&ConstValues.emailRegExp.hasMatch(value))
+                  return (value != null &&
+                          ConstValues.emailRegExp.hasMatch(value))
                       ? null
                       : "error_@".tr();
                 },
@@ -130,30 +130,34 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, HomeView.id);
 
-                    // Navigator.pushNamed(context, DetailsMovieView.id);
+
+                    if (formKey.currentState!.validate()) {
+                      AppSnackBar.success(context);
+
+                    Navigator.pushNamed(context, HomeView.id);
+                    }else{
+                      AppSnackBar.failure(context);
+
+                    }
                   },
-                  child:  Text(
+                  child: Text(
                     "sign_in".tr(),
-                    style:  Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
               spacerH20,
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                 Text("do_not_have_account".tr(),
-
-                   style:  Theme.of(context).textTheme.displayMedium
-                ),
+                Text("do_not_have_account".tr(),
+                    style: Theme.of(context).textTheme.displayMedium),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, RegisterView.id);
                   },
-                  child:  Text(
+                  child: Text(
                     " register".tr(),
-
-                    style:  Theme.of(context).textTheme.bodyLarge,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
               ]),

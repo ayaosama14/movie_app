@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import '../../../../utils/app_colors.dart';
-import '../views/home_view.dart';
+import 'app_colors.dart';
+import '../featchers/home_fetcher/presentation/views/home_view.dart';
 
 BottomNavigationBar bottomNavBar ({required int selectedIndex,required BuildContext context}){
   return BottomNavigationBar(

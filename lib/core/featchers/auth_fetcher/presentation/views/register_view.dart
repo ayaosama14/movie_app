@@ -1,7 +1,6 @@
-
- import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
+import 'package:movie/core/utils/snack_bar.dart';
 
 import '../../../../utils/app_style.dart';
 import '../../../../utils/const.dart';
@@ -27,15 +26,13 @@ class _RegisterViewState extends State<RegisterView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isSecured = true;
   bool isLoading = false;
+
   @override
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
-
-
-
 
   Future<void> onSave() async {
     final bool isValid = formKey.currentState?.validate() ?? false;
@@ -57,18 +54,20 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 75,
               ),
               Center(
-                child:  Container(
+                child: Container(
                   width: 100.0,
                   height: 100.0,
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
-                    borderRadius:const BorderRadius.all( Radius.circular(40.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(40.0)),
                     border:
-                    Border.all(color: const Color(0xff0a2d40), width: 2)
-                    , image:const  DecorationImage(
-                    image: AssetImage("asset/images/logo4.jpg",), fit: BoxFit.cover,
-                  ),
-
+                        Border.all(color: const Color(0xff0a2d40), width: 2),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                        "asset/images/logo4.jpg",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   // color: Colors.black,
 
@@ -76,16 +75,14 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
               ),
               spacerH12,
-               Center(
+              Center(
                 child: Text(
                   "register_to_continue".tr(),
-
-                  style:  Theme.of(context).textTheme.headlineLarge,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
               spacerH20,
-              CustomTextField(hint: "name_hint".tr(),
-               prefixIcon: Icons.person),
+              CustomTextField(hint: "name_hint".tr(), prefixIcon: Icons.person),
               spacerH20,
               CustomTextField(
                 hint: "email_hint".tr(),
@@ -95,7 +92,8 @@ class _RegisterViewState extends State<RegisterView> {
                   // print("onSaved value is : $value");
                 },
                 validator: (String? value) {
-                return (value != null &&ConstValues.emailRegExp.hasMatch(value))
+                  return (value != null &&
+                          ConstValues.emailRegExp.hasMatch(value))
                       ? null
                       : "error_@".tr();
                 },
@@ -107,7 +105,7 @@ class _RegisterViewState extends State<RegisterView> {
                 myController: passwordController,
                 validator: (String? value) {
                   return (value!.isEmpty || value.length <= 4)
-                      ?  "should_be_less_that_4_character".tr()
+                      ? "should_be_less_that_4_character".tr()
                       : null;
                 },
                 isSecure: isSecured,
@@ -132,30 +130,30 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginView.id);
+                    if (formKey.currentState!.validate()) {
+                      AppSnackBar.success(context);
+                      Navigator.pushNamed(context, LoginView.id);
+                    }
                   },
-                  child:  Text(
+                  child: Text(
                     "register".tr(),
-
-                    style:  Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
               ),
               spacerH20,
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                 Text(
+                Text(
                   "do_not_have_account".tr(),
-
-                     style:  Theme.of(context).textTheme.displayMedium,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, HomeView.id);
                   },
-                  child:  Text(
+                  child: Text(
                     " Login".tr(),
-                    style:  Theme.of(context).textTheme.bodyLarge,
-
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
               ]),
@@ -166,4 +164,3 @@ class _RegisterViewState extends State<RegisterView> {
     );
   }
 }
-//.bat configure

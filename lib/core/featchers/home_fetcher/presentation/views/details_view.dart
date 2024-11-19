@@ -40,7 +40,7 @@ class DetailsMovieView extends StatelessWidget {
           children: [
             spacerH4,
             CachedNetworkImage(
-              imageUrl: (ConstValues.baseImage + movies![index!].posterPath!),
+              imageUrl: (AppConst.baseImage + movies![index!].posterPath!),
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.35,
@@ -60,25 +60,25 @@ class DetailsMovieView extends StatelessWidget {
               children: [
                 CachedNetworkImage(
                   imageUrl:
-                      (ConstValues.baseImage + movies![index!].posterPath!),
+                      (AppConst.baseImage + movies![index!].posterPath!),
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width * 0.25,
                   height: 180,
                 ),
-                spacerW12,
+                spacerW10,
                 Column(
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.69,
+                      width: MediaQuery.of(context).size.width * 0.68,
                       child: Text("Over view:  ${movies![index!].overview!}",
-                          style: Theme.of(context).textTheme.displayMedium
+                          style: Theme.of(context).textTheme.bodyMedium
 
                           ,maxLines: 6,
                           overflow: TextOverflow.ellipsis),
                     ),
                     spacerH8,
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.69,
+                      width: MediaQuery.of(context).size.width * 0.67,
                       child: Text(
                           "Language: ${movies![index!].originalLanguage!}",
                           style: Theme.of(context).textTheme.displayMedium,
@@ -88,7 +88,7 @@ class DetailsMovieView extends StatelessWidget {
                     ),
                     spacerH8,
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.69,
+                      width: MediaQuery.of(context).size.width * 0.67,
                       child: Text("popularity: ${((movies![index!].popularity!/100).toStringAsFixed(1))}%",
                           // style: AppStyle.textStyle14,
                           style: Theme.of(context).textTheme.displayMedium
@@ -98,7 +98,7 @@ class DetailsMovieView extends StatelessWidget {
 
                     spacerH8,
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.69,
+                      width: MediaQuery.of(context).size.width * 0.67,
                       child: Row(
                         children: [
                           Text("vote: ${movies![index!].voteAverage!.toStringAsFixed(1)}",

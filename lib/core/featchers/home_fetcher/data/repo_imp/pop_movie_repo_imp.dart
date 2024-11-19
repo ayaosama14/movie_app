@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../utils/di.dart';
 import '../../domain/pop_movie_repo.dart';
@@ -9,19 +8,19 @@ import '../apis/api_imp.dart';
 
 class RepoImp extends Repo {
   // ApiImp popularApiImp=ApiImp();
-//repo need instance apiImp
-
+ //repo need instance apiImp
+//   PopularResModel instancePopResModel= getIt.get<PopularResModel>();
   ApiImp popularApiImp = getIt.get<ApiImp>();
 
   @override
-  Future<Either<String, PopularResModel>> fetchPopularMovies() async {
+  Future<Either<String, PopularResModel>> fetchPopularMovies(
+      {int? page}) async {
     // APIResponse   apiResponse;
 
-    Response response = await popularApiImp.getPopMoviesList();
+    Response response = await popularApiImp.getPopMoviesList(page: page!);
     if (response.statusCode == 200) {
       PopularResModel instancePopResModel =
-          await PopularResModel.fromJson(response.data);
-      // print("* RepoImp response is :${instancePopResModel}");
+          PopularResModel.fromJson(response.data);
 
       return Right(instancePopResModel);
     } else {

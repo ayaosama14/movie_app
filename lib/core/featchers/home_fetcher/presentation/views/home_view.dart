@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final provider=getIt<PopularMoviesProvider>();
     return ChangeNotifierProvider(
-      create: (_) => provider..fetchPopularMovies(),
+      create: (_) => provider..fetchPopularMovies(1),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(1),
@@ -101,7 +101,7 @@ class _HomeViewState extends State<HomeView> {
                           return Center(
                               child: Text('Error: ${provider.errorMessage}'));
                         }
-                        return MovieItem(provider.movies);
+                        return MovieItem(provider.movies,provider);
                       },
                     ),
                   ]),

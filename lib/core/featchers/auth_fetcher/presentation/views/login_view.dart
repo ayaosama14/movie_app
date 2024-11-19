@@ -93,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
                 },
                 validator: (String? value) {
                   return (value != null &&
-                          ConstValues.emailRegExp.hasMatch(value))
+                          AppConst.emailRegExp.hasMatch(value))
                       ? null
                       : "error_@".tr();
                 },
@@ -130,9 +130,14 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
                 child: ElevatedButton(
                   onPressed: () {
+                    setState(() {
 
+                    });
+                    // print('onPressed');
+                    // print("formKey.currentState!.validate()${formKey.currentState!.validate()}");
 
-                    if (formKey.currentState!.validate()) {
+                    if (formKey.currentState?.validate()==true) {
+
                       AppSnackBar.success(context);
 
                     Navigator.pushNamed(context, HomeView.id);

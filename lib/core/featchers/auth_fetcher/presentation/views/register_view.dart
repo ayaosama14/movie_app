@@ -93,7 +93,7 @@ class _RegisterViewState extends State<RegisterView> {
                 },
                 validator: (String? value) {
                   return (value != null &&
-                          ConstValues.emailRegExp.hasMatch(value))
+                          AppConst.emailRegExp.hasMatch(value))
                       ? null
                       : "error_@".tr();
                 },

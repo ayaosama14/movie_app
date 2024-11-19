@@ -33,7 +33,7 @@ return
 
     CachedNetworkImage(
 
-     imageUrl: (ConstValues.baseImage+item.posterPath!),
+     imageUrl: (AppConst.baseImage+item.posterPath!),
       fit: BoxFit.cover,
         width: MediaQuery.of(context).size.width,
         height:  MediaQuery.of(context).size.height*45,

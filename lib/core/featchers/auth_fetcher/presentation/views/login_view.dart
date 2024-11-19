@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie/core/featchers/auth_fetcher/presentation/views/register_view.dart';
 import 'package:movie/core/utils/snack_bar.dart';
 
-import '../../../../utils/app_style.dart';
+
 import '../../../../utils/const.dart';
 import '../../../../utils/spacer.dart';
 import '../../../home_fetcher/presentation/views/home_view.dart';
@@ -36,12 +36,12 @@ class _LoginViewState extends State<LoginView> {
   }
 
   //on save method
-  // Future<void> onSave() async {
-  //   final bool isValid = formKey.currentState?.validate() ?? false;
-  //   if (!isValid) {
-  //     return;
-  //   }
-  // }
+  Future<void> onSave() async {
+    final bool isValid = formKey.currentState?.validate() ?? false;
+    if (!isValid) {
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

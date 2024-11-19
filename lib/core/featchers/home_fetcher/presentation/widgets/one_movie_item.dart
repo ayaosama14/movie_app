@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../utils/const.dart';
 
 import '../../data/Models/pop_movie_model.dart';
-import '../../data/pagination.dart';
+
 import '../manager/pop_movies_provider.dart';
 import '../views/details_view.dart';
 
@@ -78,11 +78,14 @@ class _MovieItemState extends State<MovieItem> {
                     const SizedBox(height: 8.0),
                     Expanded(
                       flex: 2,
-                      child: Text(
-                        ' ${movie.title!}',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      child: Container(margin: const EdgeInsets.symmetric(horizontal:6
+                      ),
+                        child: Text(
+                          ' ${movie.title!}',
+                          style: Theme.of(context).textTheme.displayLarge,
+                          maxLines: 2,
+                          overflow: TextOverflow.clip,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 4.0),

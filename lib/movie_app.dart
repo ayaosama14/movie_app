@@ -5,6 +5,7 @@ import 'core/featchers/auth_fetcher/presentation/views/login_view.dart';
 import 'core/featchers/auth_fetcher/presentation/views/register_view.dart';
 import 'core/featchers/home_fetcher/presentation/views/details_view.dart';
 import 'core/featchers/home_fetcher/presentation/views/home_view.dart';
+import 'core/featchers/home_fetcher/presentation/views/setting.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_style.dart';
 import 'core/utils/theme.dart';
@@ -25,6 +26,7 @@ class MovieApp extends StatelessWidget {
         RegisterView.id: (BuildContext context) => const RegisterView(),
         HomeView.id: (BuildContext context) => HomeView(),
         DetailsMovieView.id: (BuildContext context) => DetailsMovieView(),
+        SettingView.id:(BuildContext context) => SettingView(),
       },
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

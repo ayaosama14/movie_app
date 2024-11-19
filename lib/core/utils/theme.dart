@@ -4,15 +4,18 @@ import 'app_colors.dart';
 import 'app_style.dart';
 
 ThemeData appThemeLight() {
+  // const Color(0xffabccc3)
   return ThemeData(
-      scaffoldBackgroundColor: const Color(0xffabccc3),
+      scaffoldBackgroundColor:Colors.white ,
       colorScheme: ColorScheme.light(
+
           primary: AppColor.primColor, secondary: AppColor.secColor),
       textTheme: const TextTheme(
         bodyLarge: AppStyle.boldColorTextStyle22,
-        bodySmall: AppStyle.boldBlackTextStyle20,
+        bodyMedium: AppStyle.boldBlackTextStyle20,
         // bodySmall: AppStyle.textStyle14,
-        displayMedium  : AppStyle.thinTextStyle16,
+        displayLarge: AppStyle.boldBlackTextStyle20,
+        displayMedium: AppStyle.thinTextStyle16,
         displaySmall: AppStyle.greyTextStyle12,
       ),
       appBarTheme: const AppBarTheme(
@@ -20,11 +23,25 @@ ThemeData appThemeLight() {
         centerTitle: true,
         backgroundColor: Colors.white,
         titleTextStyle: AppStyle.boldBlackTextStyle20,
+      ),
+      bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+        elevation: 4,
+        backgroundColor: AppColor.primColor,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors. black ,
+        selectedLabelStyle:const TextStyle(fontSize: 20,color: Colors.black,fontStyle:FontStyle.normal,),
+        unselectedLabelStyle:const TextStyle(fontSize: 16,color: Colors.black45),
+
+        selectedIconTheme: const IconThemeData(size:28,color:AppColor.black),
+        //
+
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
       )
-
       // appBarTheme:
-      );}
-  ThemeData appThemeDark(){
-    return ThemeData();
-  }
+      );
+}
 
+ThemeData appThemeDark() {
+  return ThemeData();
+}

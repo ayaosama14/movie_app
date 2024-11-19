@@ -8,5 +8,6 @@ class AppColor{
  static Color secColor=const Color(0xff21d9a2);
 
   static const black=Colors.black;
+ static const white=Colors.white54;
 }
 

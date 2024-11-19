@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
+import '../../../../utils/app_colors.dart';
 import '../../../../utils/di.dart';
 import '../manager/pop_movies_provider.dart';
 import '../../../../utils/buttom_nav_bar.dart';
@@ -64,16 +65,16 @@ class _HomeViewState extends State<HomeView> {
                       },
                     ),
                     SizedBox(
-                      height: 4.0,
+                      height: 5.0,
                       width: MediaQuery.of(context).size.width,
                     ),
                     Container(
                       padding: const EdgeInsets.all(6),
-                      margin: const EdgeInsets.all(4),
-                      // width:MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
+                      margin: const EdgeInsets.all(10),
+                      width:MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(6.0),
                         ),
                       ),
@@ -86,7 +87,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     SizedBox(
-                      height: 4.0,
+                      height: 1.0,
                       width: MediaQuery.of(context).size.width,
                     ),
                     Consumer<PopularMoviesProvider>(

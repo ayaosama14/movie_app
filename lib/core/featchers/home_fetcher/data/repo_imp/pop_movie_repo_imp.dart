@@ -7,8 +7,7 @@ import '../Models/pop_movie_model.dart';
 import '../apis/api_imp.dart';
 
 class RepoImp extends Repo {
-  // ApiImp popularApiImp=ApiImp();
- //repo need instance apiImp
+
 //   PopularResModel instancePopResModel= getIt.get<PopularResModel>();
   ApiImp popularApiImp = getIt.get<ApiImp>();
 

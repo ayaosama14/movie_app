@@ -6,14 +6,15 @@ import '../../../../utils/const.dart';
 
 import '../../data/Models/pop_movie_model.dart';
 
-import '../manager/pop_movies_provider.dart';
+import '../manager/cubit/movies_cubit.dart';
+import '../manager/provider/pop_movies_provider.dart';
 import '../views/details_view.dart';
 
 class MovieItem extends StatefulWidget {
   final List<Results>? movies;
-  PopularMoviesProvider? provider;
-
-  MovieItem(this.movies, this.provider, {super.key});
+  // PopularMoviesProvider? provider;
+  MoviesCubit ?cubit;
+  MovieItem(this.movies, this.cubit, {super.key});
 
   State<MovieItem> createState() => _MovieItemState();
 }
@@ -30,11 +31,10 @@ class _MovieItemState extends State<MovieItem> {
                   notification.metrics.maxScrollExtent &&
               notification is ScrollUpdateNotification) {
             //get next page
-           
-            // print('loadMoreMovies');
-            // print("PaginationData().page! ${widget.provider!.page! }");
-          int  nextPage = (widget.provider!.page! + 1) ;
-            widget.provider!.fetchPopularMovies(nextPage);
+            int  nextPage = (widget.cubit!.pageNum!+1 );
+            widget.cubit!.fetchPopMovies(nextPage);
+          // int  nextPage = (widget.provider!.page! + 1) ;
+          //   widget.provider!.fetchPopularMovies(nextPage);
           }
           return true;
         },

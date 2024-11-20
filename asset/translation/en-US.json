@@ -13,6 +13,8 @@
     "register_to_continue": "Register to continue",
     "error_@": "Oops! end with @ char.com",
 
-    "Popular_Movies": "Popular Movies:"
-
+    "Popular_Movies": "Popular Movies:",
+    "language": "Language",
+    "english":"English",
+    "arabic": "Arabic"
 }

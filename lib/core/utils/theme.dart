@@ -6,7 +6,7 @@ import 'app_style.dart';
 ThemeData appThemeLight() {
   // const Color(0xffabccc3)
   return ThemeData(
-      scaffoldBackgroundColor:Colors.white ,
+      scaffoldBackgroundColor: AppColor.secColor ,
       colorScheme: ColorScheme.light(
 
           primary: AppColor.primColor, secondary: AppColor.secColor),
@@ -21,7 +21,7 @@ ThemeData appThemeLight() {
       appBarTheme: const AppBarTheme(
         elevation: 2,
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor:  AppColor.white,
         titleTextStyle: AppStyle.boldBlackTextStyle20,
       ),
       bottomNavigationBarTheme:  BottomNavigationBarThemeData(

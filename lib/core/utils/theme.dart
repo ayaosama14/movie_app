@@ -6,7 +6,7 @@ import 'app_style.dart';
 ThemeData appThemeLight() {
   // const Color(0xffabccc3)
   return ThemeData(
-      scaffoldBackgroundColor: AppColor.secColor ,
+      scaffoldBackgroundColor: AppColor.primColor ,
       colorScheme: ColorScheme.light(
 
           primary: AppColor.primColor, secondary: AppColor.secColor),

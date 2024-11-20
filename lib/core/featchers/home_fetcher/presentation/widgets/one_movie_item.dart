@@ -6,7 +6,8 @@ import '../../../../utils/const.dart';
 
 import '../../data/Models/pop_movie_model.dart';
 
-import '../manager/pop_movies_provider.dart';
+
+import '../manager/provider/pop_movies_provider.dart';
 import '../views/details_view.dart';
 
 class MovieItem extends StatefulWidget {

@@ -11,7 +11,7 @@ Widget textContainer({required BuildContext context ,required String text }){
     margin: const EdgeInsets.all(10),
     width:MediaQuery.of(context).size.width,
     decoration: const BoxDecoration(
-      // color: AppColor.white,
+      color: AppColor.white,
       borderRadius: BorderRadius.all(
         Radius.circular(6.0),
       ),

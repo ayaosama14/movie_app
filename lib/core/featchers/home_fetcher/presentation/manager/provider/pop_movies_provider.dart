@@ -1,10 +1,9 @@
 import 'package:either_dart/either.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/core/featchers/home_fetcher/data/pagination.dart';
 
-import '../../../../utils/di.dart';
-import '../../data/Models/pop_movie_model.dart';
-import '../../data/repo_imp/pop_movie_repo_imp.dart';
+import '../../../../../utils/di.dart';
+import '../../../data/Models/pop_movie_model.dart';
+import '../../../data/repo_imp/pop_movie_repo_imp.dart';
 
 class PopularMoviesProvider with ChangeNotifier {
   List<Results>? movies = [];

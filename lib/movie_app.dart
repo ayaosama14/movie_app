@@ -6,8 +6,7 @@ import 'core/featchers/auth_fetcher/presentation/views/register_view.dart';
 import 'core/featchers/home_fetcher/presentation/views/details_view.dart';
 import 'core/featchers/home_fetcher/presentation/views/home_view.dart';
 import 'core/featchers/home_fetcher/presentation/views/setting.dart';
-import 'core/utils/app_colors.dart';
-import 'core/utils/app_style.dart';
+
 import 'core/utils/theme.dart';
 
 class MovieApp extends StatelessWidget {
@@ -31,6 +30,8 @@ class MovieApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+
+
     );
   }
 }

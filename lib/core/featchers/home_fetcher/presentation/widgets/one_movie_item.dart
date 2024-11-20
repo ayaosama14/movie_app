@@ -7,14 +7,15 @@ import '../../../../utils/const.dart';
 import '../../data/Models/pop_movie_model.dart';
 
 
+import '../manager/bloc/movies_bloc.dart';
 import '../manager/provider/pop_movies_provider.dart';
 import '../views/details_view.dart';
 
 class MovieItem extends StatefulWidget {
   final List<Results>? movies;
-  PopularMoviesProvider? provider;
+  MoviesBloc instanceBloc;
 
-  MovieItem(this.movies, this.provider, {super.key});
+  MovieItem(this.movies, this.instanceBloc, {super.key});
 
   State<MovieItem> createState() => _MovieItemState();
 }
@@ -34,8 +35,9 @@ class _MovieItemState extends State<MovieItem> {
            
             // print('loadMoreMovies');
             // print("PaginationData().page! ${widget.provider!.page! }");
-          int  nextPage = (widget.provider!.page! + 1) ;
-            widget.provider!.fetchPopularMovies(nextPage);
+          int  nextPage = (widget.instanceBloc.pageNum! + 1) ;
+          print("nextPage${nextPage}");
+            widget.instanceBloc!.add(FetchMoviesEvent(pageNum: nextPage));
           }
           return true;
         },

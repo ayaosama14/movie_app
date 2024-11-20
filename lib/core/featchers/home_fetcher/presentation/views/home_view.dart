@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/core/utils/text_container.dart';
-
-import 'package:provider/provider.dart';
-
-import '../../../../utils/di.dart';
 
 import '../../../../utils/buttom_nav_bar.dart';
 import '../../../../utils/carousel.dart';
-import '../manager/provider/pop_movies_provider.dart';
-import '../widgets/one_movie_item.dart';
+import '../manager/bloc/movies_bloc.dart';
 
+import '../widgets/one_movie_item.dart';
 
 class HomeView extends StatefulWidget {
   static const String id = "home_view";
@@ -22,6 +19,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  late MoviesBloc _moviesBloc;
+
   void onItemTapped(int index) {
     setState(() {
       widget.selectedIndex = index;
@@ -30,70 +29,65 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    final provider=getIt<PopularMoviesProvider>();
-    return ChangeNotifierProvider(
-      create: (_) => provider..fetchPopularMovies(1),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(1),
-          child: Scaffold(
-            bottomNavigationBar: bottomNavBar(
-              selectedIndex: widget.selectedIndex,
-              context: context,
-            ),
-            body: SingleChildScrollView(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 8.0,
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    Consumer<PopularMoviesProvider>(
-                      builder: (_, provider, __) {
-                        // Show a loading indicator while fetching data
-                        if (provider.movies == null ||
-                            provider.movies!.isEmpty) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-                        if (provider.errorMessage != null) {
-                          return Center(
-                              child: Text('Error: ${provider.errorMessage}'));
-                        }
-                        return carouselSliderImage(
-                            context: context, listOfMovies: provider.movies);
-                      },
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                      width: MediaQuery.of(context).size.width,
-                    ),
+    return BlocProvider<MoviesBloc>(
+      create: (context) => MoviesBloc()..add(FetchMoviesEvent(pageNum: 1)),
+      child: BlocBuilder<MoviesBloc, MoviesState>(
+        builder: (context, state) {
+          return SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(1),
+              child: Scaffold(
+                bottomNavigationBar: bottomNavBar(
+                  selectedIndex: widget.selectedIndex,
+                  context: context,
+                ),
+                body: SingleChildScrollView(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 8.0,
+                          width: MediaQuery.of(context).size.width,
+                        ),
+                        //////////////////////////////////////////////////////
+                        if (state is MoviesLoadingState)
+                          const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        if (state is MoviesFailedState)
+                          Center(child: Text('Error: ${state.errorMessage}')),
+                        if (state is MoviesSuccessState)
+                          carouselSliderImage(
+                              context: context, listOfMovies: state.movies),
 
-                    textContainer(context: context, text:  "Popular_Movies"),
-                    SizedBox(
-                      height: 1.0,
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    Consumer<PopularMoviesProvider>(
-                      builder: (context, provider, child) {
-                        // Show a loading indicator while fetching data
-                        if (provider.movies == null ||
-                            provider.movies!.isEmpty) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-                        if (provider.errorMessage != null) {
-                          return Center(
-                              child: Text('Error: ${provider.errorMessage}'));
-                        }
-                        return MovieItem(provider.movies,provider);
-                      },
-                    ),
-                  ]),
+                        ///////////////////////////////////////////////////////////////
+                        SizedBox(
+                          height: 5.0,
+                          width: MediaQuery.of(context).size.width,
+                        ),
+
+                        textContainer(context: context, text: "Popular_Movies"),
+                        SizedBox(
+                          height: 1.0,
+                          width: MediaQuery.of(context).size.width,
+                        ),
+                        //////////////////////////////////////////////////////////////
+                        if (state is MoviesLoadingState)
+                          const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        if (state is MoviesFailedState)
+                          Center(child: Text('Error: ${state.errorMessage}')),
+                        if (state is MoviesSuccessState)
+                          MovieItem(state.movies,
+                              BlocProvider.of<MoviesBloc>(context)),
+                        //////////////////////////////////////////////////////////////////
+                      ]),
+                ),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

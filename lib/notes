@@ -1,0 +1,19 @@
+fire base
+///////////////////////////////////////////////////
+authication
+1-firebase core package
+
+2-firebase auth package.
+ ////////////////////
+ main(){
+ }
+ 3- auth (create user /login)
+ ////////////////////////////////
+ register method to send data to firebase
+ sendRegisterDate(){
+
+ email controller .text ,
+ password  controller .text ,
+ name controller .text
+ ,
+ }

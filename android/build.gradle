@@ -1,4 +1,4 @@
-allprojects {
+android.applicationallprojects {
     repositories {
         google()
         mavenCentral()

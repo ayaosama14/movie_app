@@ -6,5 +6,6 @@ class AppConst {
   );
   static const baseUrl='https://api.themoviedb.org/3';
   static const   popularEndPoint='/movie/popular';
+  static late final fcmToken ;
 }
 

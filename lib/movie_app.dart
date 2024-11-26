@@ -21,7 +21,7 @@ class MovieApp extends StatelessWidget {
       initialRoute: LoginView.id,
       // initialRoute: HomeView.id,
       routes: {
-        LoginView.id: (BuildContext context) => const LoginView(),
+        LoginView.id: (BuildContext context) =>  LoginView(),
         RegisterView.id: (BuildContext context) => const RegisterView(),
         HomeView.id: (BuildContext context) => HomeView(),
         DetailsMovieView.id: (BuildContext context) => DetailsMovieView(),

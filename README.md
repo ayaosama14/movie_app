@@ -25,6 +25,7 @@ Responsive Design: The app is designed to be responsive, adapting to various scr
    10-using service locator get_it to solve dependency\
    11-use theme of material\
    12-pagination
+     13- implement different pr as another state management (bloc - cubit - provider)
    
 
 
